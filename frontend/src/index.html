@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>patryksadowski.pl</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="src/style.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+    <style>
+        a { cursor: pointer; }
+    </style>
+</head>
+<body>
+	<div data-component="navbar">
+
+        <nav class="navbar p-0 fixed-top" style="box-shadow: 2px 2px 2px #dedede;">
+
+            <div><a class="navbar-brand px-1 float-left" href="index.html"><span class="d-inline-block" style="font-family:'Oswald',sans-serif;font-size:36px;color:#fff" title="Projekty Grupowe Politechniki Gdańskiej">PG²</a>
+
+                <div class="right-links float-right mr-4">
+                    <a href="index.html" class="home" title="Strona główna"><i class="fa fa-home mr-3"></i></a>
+
+                    <div class="d-inline dropdown rounded-0 mx-3">
+                        <a class="dropdown-toggle" id="tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" title="Ustawienia"><i class="fa fa-wrench" aria-hidden="true"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right rounded-0 text-center" aria-labelledby="tools">
+                            <a class="dropdown-item px-2" href="#">Preferencje</a>
+                        </div>
+                    </div>
+
+                    <div class="d-inline dropdown mr-3">
+                        <a class="dropdown-toggle" id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" title="Powiadomienia"><span>10</span><i class="fa fa-bell"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right rounded-0 pt-0" aria-labelledby="notifications">
+                            <div class="list-group">
+                                <div class="lg">
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                                        <h5 class="mb-1">Projekt XXX został wysłany do sprawdzenia</h5>
+                                        <p class="mb-0">11 czerwca 2019 | 23:59</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <h5 class="mb-1">Zlecono projekt YYY przez XYZ</h5>
+                                        <p class="mb-0">11 czerwca 2019 | 23:59</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <h5 class="mb-1">Projekt ZZZ został utworzony</h5>
+                                        <p class="mb-0">11 czerwca 2019 | 23:59</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <h5 class="mb-1">Projekt XXX został wysłany do sprawdzenia</h5>
+                                        <p class="mb-0">11 czerwca 2019 | 23:59</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <h5 class="mb-1">Projekt XXX został wysłany do sprawdzenia</h5>
+                                        <p class="mb-0">11 czerwca 2019 | 23:59</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <h5 class="mb-1">Projekt ZZZ został utworzony</h5>
+                                        <p class="mb-0">11 czerwca 2019 | 23:59</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <h5 class="mb-1">Projekt ZZZ został utworzony</h5>
+                                        <p class="mb-0">11 czerwca 2019 | 23:59</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <h5 class="mb-1">Projekt ZZZ został utworzony</h5>
+                                        <p class="mb-0">11 czerwca 2019 | 23:59</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <h5 class="mb-1">Zlecono projekt YYY przez XYZ</h5>
+                                        <p class="mb-0">11 czerwca 2019 | 23:59</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <h5 class="mb-1">Zlecono projekt YYY przez XYZ</h5>
+                                        <p class="mb-0">11 czerwca 2019 | 23:59</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-inline dropdown mr-3">
+                        <a class="dropdown-toggle" id="messages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" title="Wiadomości"><i class="fa fa-envelope"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right rounded-0 text-center" aria-labelledby="messages">
+                            <a class="dropdown-item">Nie ma nowych wiadomości</a>
+                        </div>
+                    </div>
+
+                    <div class="d-inline dropdown">
+                        <a class="dropdown-toggle" id="messages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" title="Profil"><i class="fas fa-user mr-3"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right rounded-0" aria-labelledby="messages">
+                            <a class="dropdown-item" href="#">Edytuj mój profil</a>
+                            <a class="dropdown-item" href="#">Wyloguj</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <form class="right-links form-inline float-right" style="margin:0 180px 0 0">
+                    <div class="d-inline dropdown">
+                        <a class="dropdown-toggle" id="filters" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" title="Filtry"><i class="fas fa-filter"></i></a>
+                        <div class="dropdown-menu dropdown-menu-left rounded-0" aria-labelledby="filters">
+                            <a class="dropdown-item" href="#">Utwórz nowy filtr</a>
+                            <a class="dropdown-item" href="#">Edytuj filtr</a>
+                            <a class="dropdown-item" href="#">Pomoc</a>
+                            <a class="dropdown-item" href="#">Usuń filtr</a>
+                        </div>
+                    </div>
+                    <input class="form-control form-control-sm mr-3 ml-3" type="text" placeholder="Szukaj" aria-label="search">
+                    <a href="#" id="search" title="Szukaj"><i class="fas fa-search" aria-hidden="true"></i></a>
+                </form>
+
+            </div>
+
+        </nav>
+    </div>
+
+    <div data-component="sidebar">
+        <div class="sidebar">
+            <ul class="list-group flex-column d-inline-block first-menu">
+                <li class="list-group-item pl-3 py-2">
+                    <a href="#"><i class="fas fa-project-diagram" aria-hidden="true"><span class="ml-2 align-middle">Projekty</span></i></a>
+
+                    <ul class="list-group flex-column d-inline-block submenu">
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Raporty</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="raport.html">Utwórz raport</a>
+                                </li>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                        <li class="list-group-item pl-4">
+                            <a href="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:113px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="list-group-item pl-3 py-2">
+                    <a href="#"><i class="fas fa-chart-pie" aria-hidden="true"><span class="ml-2 align-middle">Statystyka</span></i></a>
+                    <ul class="list-group flex-column d-inline-block submenu">
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:114px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:166px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:220px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:272px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:323px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:377px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="list-group-item pl-3 py-2">
+                    <a href="#">
+                        <i class="fas fa-address-book" aria-hidden="true"><span class="ml-2 align-middle">Użytkownicy</span></i>
+                    </a>
+                    <ul class="list-group flex-column d-inline-block submenu">
+
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:114px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:166px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="list-group-item pl-3 py-2">
+                    <a href="#"><i class="fas fa-terminal" aria-hidden="true"><span class="ml-2 align-middle">Terminal</span></i></a>
+
+                    <ul class="list-group flex-column d-inline-block submenu">
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:114px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="list-group-item pl-3 py-2">
+                    <a href="#"><i class="fas fa-microchip" aria-hidden="true"><span class="ml-2 align-middle">Elektronika</span></i></a>
+                    <ul class="list-group flex-column d-inline-block submenu">
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:114px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:166px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:220px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:272px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:323px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:377px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+
+                </li>
+
+                <li class="list-group-item pl-3 py-2">
+                    <a href="#"><i class="fas fa-bath" aria-hidden="true"><span class="ml-2 align-middle">Prysznic</span></i></a>
+                    <ul class="list-group flex-column d-inline-block submenu">
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:114px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="list-group-item pl-4">
+                            <a href="#" class="">Test</a>
+
+                            <ul class="list-group flex-column d-inline-block sub-submenu">
+                                <span class="arrow" style="top:166px;"></span>
+                                <li class="list-group-item pl-4">
+                                    <a href="#">Test</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="vu-content">
+        <div class="container-fluid">
+				<div id="app"></div>
+        </div>
+    </div>
+</body>
+</html>
