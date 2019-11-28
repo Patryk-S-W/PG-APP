@@ -7,6 +7,8 @@ import { PrivateRoute } from '@/_components';
 import { HomePage } from '@/HomePage';
 import { AdminPage } from '@/AdminPage';
 import { LoginPage } from '@/LoginPage';
+import { Sidebar } from '@/Sidebar';
+import { Navbar } from '@/Navbar';
 
 class App extends React.Component {
     constructor(props) {
@@ -39,10 +41,12 @@ class App extends React.Component {
     }
 
     render() {
-        const { currentUser, isAdmin } = this.state;
+        const { currentUser, isAdmin, isClient, isCoordinator, isStudent, isSupervisor } = this.state;
         return (
             <Router history={history}>
                 <div>
+					<Navbar />
+					<Sidebar />
                     {currentUser &&
                         <nav className="navbar navbar-expand navbar-dark bg-dark">
                             <div className="navbar-nav">
@@ -52,16 +56,20 @@ class App extends React.Component {
                             </div>
                         </nav>
                     }
-                    <div className="jumbotron">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-6 offset-md-3">
-                                    <PrivateRoute exact path="/" component={HomePage} />
-                                    <PrivateRoute path="/admin" roles={[Role.Admin]} component={AdminPage} />
-                                    <Route path="/login" component={LoginPage} />
-                                </div>
-                            </div>
-                        </div>
+                    <div class="vu-content">
+						<div class="container-fluid">
+							<div className="jumbotron">
+								<div className="container">
+									<div className="row">
+										<div className="col-md-6 offset-md-3">
+											<PrivateRoute exact path="/" component={HomePage} />
+											<PrivateRoute path="/admin" roles={[Role.Admin]} component={AdminPage} />
+											<Route path="/login" component={LoginPage} />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
                     </div>
                 </div>
             </Router>
