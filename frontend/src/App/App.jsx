@@ -10,9 +10,6 @@ import { LoginPage } from '@/LoginPage';
 import { Sidebar } from '@/Sidebar';
 import { Navbar } from '@/Navbar';
 
-import axios from 'axios';
-import config from 'config';
-
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -23,10 +20,7 @@ class App extends React.Component {
             isClient: false,
             isCoordinator: false,
             isStudent: false,
-            isSupervisor: false,
-           /* test upload file
-            selectedFile: null 
-            */
+            isSupervisor: false
         };
     }
 
@@ -45,33 +39,13 @@ class App extends React.Component {
         authenticationService.logout();
         history.push('/login');
     }
-    /* test Upload File
-    onClickHandler = () => {
-        const data = new FormData()
-        data.append('file', this.state.selectedFile)
-        axios.post(`${config.apiUrl}/uploadRaports`, data, { 
-           // receive two    parameter endpoint url ,form data
-       })
-     .then(res => { // then print response status
-         console.log(res.statusText)
-      })
-      .catch(err =>{
-        console.log(err)
-      })
-     }
-     onChangeHandler=event=>{
-        this.setState({
-          selectedFile: event.target.files[0],
-        })
-        
-      }
-      */
+
     render() {
         const { currentUser, isAdmin, isClient, isCoordinator, isStudent, isSupervisor } = this.state;
         return (
             <Router history={history}>
                 <div>
-                <Navbar />
+					<Navbar />
 					<Sidebar />
                     {currentUser &&
                         <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -97,10 +71,6 @@ class App extends React.Component {
 							</div>
 						</div>
                     </div>
-                    {/* test upload file
-                <input type="file" name="file" onChange={this.onChangeHandler}/>    
-                    <button type="button" class="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button> 
-                    */}
                 </div>
             </Router>
         );
