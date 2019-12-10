@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/test', db.createUsers)
+app.get('/test', db.getUsers)
 
 // api routes
 app.use('/users', require('./users/users.controller'));

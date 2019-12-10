@@ -24,9 +24,7 @@ class App extends React.Component {
             isCoordinator: false,
             isStudent: false,
             isSupervisor: false,
-           /* test upload file
             selectedFile: null 
-            */
         };
     }
 
@@ -45,14 +43,12 @@ class App extends React.Component {
         authenticationService.logout();
         history.push('/login');
     }
-    /* test Upload File
     onClickHandler = () => {
         const data = new FormData()
         data.append('file', this.state.selectedFile)
-        axios.post(`${config.apiUrl}/uploadRaports`, data, { 
-           // receive two    parameter endpoint url ,form data
+        axios.post(`${config.apiUrl}/uploadRaports`, data, {
        })
-     .then(res => { // then print response status
+     .then(res => {
          console.log(res.statusText)
       })
       .catch(err =>{
@@ -65,7 +61,6 @@ class App extends React.Component {
         })
         
       }
-      */
     render() {
         const { currentUser, isAdmin, isClient, isCoordinator, isStudent, isSupervisor } = this.state;
         return (
@@ -82,8 +77,8 @@ class App extends React.Component {
                             </div>
                         </nav>
                     }
-                    <div class="vu-content">
-						<div class="container-fluid">
+                    <div className="vu-content">
+						<div className="container-fluid">
 							<div className="jumbotron">
 								<div className="container">
 									<div className="row">
@@ -97,10 +92,10 @@ class App extends React.Component {
 							</div>
 						</div>
                     </div>
-                    {/* test upload file
+                    
                 <input type="file" name="file" onChange={this.onChangeHandler}/>    
-                    <button type="button" class="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button> 
-                    */}
+                    <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button> 
+                    
                 </div>
             </Router>
         );
