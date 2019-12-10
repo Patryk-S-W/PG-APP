@@ -4,10 +4,14 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const errorHandler = require('_helpers/error-handler');
+const db = require('./database/queries');
 
-app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
+
+app.get('/test', db.createUsers)
 
 // api routes
 app.use('/users', require('./users/users.controller'));
