@@ -526,3 +526,9 @@ flex-direction: column;
 	margin-top:90px
 }
 .vu-center>th{padding: 6px 0 6px 12px;border-bottom: 1px solid #ddd;}
+.upload-box{width:300px;margin-top:60px}
+
+.column-flex{display:flex;flex-direction:column}
+.row-flex{display:flex;flex-direction:row}
+.hheader{margin-bottom:30px}
+.btn.btn-success.btn-block{margin-top:10px}

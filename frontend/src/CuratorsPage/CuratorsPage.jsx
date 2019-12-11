@@ -4,21 +4,21 @@ import { userService } from '@/_services';
 import { Sidebar } from '@/Sidebar';
 import { Navbar } from '@/Navbar';
 
-class UsersPage extends React.Component {
+class CuratorsPage extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            users: null
+            curators: null
         };
     }
 
     componentDidMount() {
-        userService.getAll().then(users => this.setState({ users }));
+        userService.getAllCurators().then(curators => this.setState({ curators }));
     }
 
     render() {
-        const { users } = this.state;
+        const { curators } = this.state;
         return (
             <div>
 				<Sidebar />
@@ -27,18 +27,16 @@ class UsersPage extends React.Component {
 					<div className="container-fluid">
 						<div className="vu-box">
 							<div>
-								<h1>Wszyscy użytkownicy</h1>
+								<h1>Wszyscy opiekunowie</h1>
 								<div>
-								{users &&
+								{curators &&
 									<table className="lessons-table">
-									<thead>
 										<tr className="vu-center"><th>ID</th><th>Imię</th><th>Nazwisko</th><th>Firma</th><th>E-mail</th><th>Telefon</th></tr>
-									</thead>
-									<tbody>
-										{users.map(user =>
+										{/*curators.map(user =>
 										<tr key={user.id}><td>{user.id}</td><td>{user.firstName}</td><td>{user.lastName}</td><td>{user.company}</td><td>{user.mail}</td><td>{user.phone}</td></tr>
-										)}
-									</tbody>
+										)*/}
+										<tr><td>3</td><td>Jakiś</td><td>Opiekun</td><td>YYY</td><td>1@1.pl</td><td>888777666</td></tr>
+										<tr><td>6</td><td>Anastazy</td><td>Wiśniewski</td><td>XXX</td><td>1@1.pl</td><td>888777666</td></tr>
 									</table>
 								}
 								</div>
@@ -51,4 +49,4 @@ class UsersPage extends React.Component {
     }
 }
 
-export { UsersPage };
+export { CuratorsPage };

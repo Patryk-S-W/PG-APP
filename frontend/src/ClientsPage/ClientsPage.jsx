@@ -4,21 +4,21 @@ import { userService } from '@/_services';
 import { Sidebar } from '@/Sidebar';
 import { Navbar } from '@/Navbar';
 
-class UsersPage extends React.Component {
+class ClientsPage extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            users: null
+            clients: null
         };
     }
 
     componentDidMount() {
-        userService.getAll().then(users => this.setState({ users }));
+        userService.getAllClients().then(clients => this.setState({ clients }));
     }
 
     render() {
-        const { users } = this.state;
+        const { clients } = this.state;
         return (
             <div>
 				<Sidebar />
@@ -27,17 +27,18 @@ class UsersPage extends React.Component {
 					<div className="container-fluid">
 						<div className="vu-box">
 							<div>
-								<h1>Wszyscy użytkownicy</h1>
+								<h1>Wszyscy klienci</h1>
 								<div>
-								{users &&
+								{clients &&
 									<table className="lessons-table">
 									<thead>
 										<tr className="vu-center"><th>ID</th><th>Imię</th><th>Nazwisko</th><th>Firma</th><th>E-mail</th><th>Telefon</th></tr>
 									</thead>
 									<tbody>
-										{users.map(user =>
+										{/*clients.map(user =>
 										<tr key={user.id}><td>{user.id}</td><td>{user.firstName}</td><td>{user.lastName}</td><td>{user.company}</td><td>{user.mail}</td><td>{user.phone}</td></tr>
-										)}
+										)*/}
+										<tr><td>5</td><td>Jakiś</td><td>Klient</td><td>XXX</td><td>1@1.com</td><td>888777666</td></tr>
 									</tbody>
 									</table>
 								}
@@ -51,4 +52,4 @@ class UsersPage extends React.Component {
     }
 }
 
-export { UsersPage };
+export { ClientsPage };

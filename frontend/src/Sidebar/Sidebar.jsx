@@ -13,19 +13,18 @@ class Sidebar extends React.Component {
             title:'Lista projektów',
             arrow:'',
             subtitle:[
-				{title:"Moje projekty",link:"#"},
-				{title:"Wszystkie projekty",link:"#"},
-				{title:"Projekty",link:"#"}
+				{title:"Moje projekty",link:"/myprojects"},
+				{title:"Wszystkie projekty",link:"/projects"}
 			],
           }
           ,{
             title:'Zarządzanie projektami',
             arrow:'113px',
             subtitle:[
-				{title:'Stwórz projekt', link:"#"},
-				{title:'Generowanie raportów',link:"#"},
-				{title:'Tworzenie harmonogramu',link:"#"},
-				{title:'Przejrzyj progress',link:"#"}
+				{title:'Stwórz projekt', link:"/createproject"},
+				{title:'Prześlij raport',link:"/sendraport"},
+				{title:'Tworzenie harmonogramu',link:"/createcalendar"},
+				{title:'Przejrzyj progress',link:"/checkprogress"}
 			]
           }
           ,{
@@ -45,17 +44,26 @@ class Sidebar extends React.Component {
           }
         ,{
           title:'Opiekunowie',
+		  link:'/curators',
           arrow:'114px',
           subtitle:[],
           }
         ,{
           title:'Zleceniodawcy',
+		  link:'/clients',
           arrow:'166px',
           subtitle:[],
           }
         ,{
-          title:'Studenci',
+          title:'Kierownicy',
+		  link:'/leaders',
           arrow:'220px',
+          subtitle:[],
+        }
+        ,{
+          title:'Studenci',
+		  link:'/students',
+          arrow:'280px',
           subtitle:[],
         }
       ]  
