@@ -12,16 +12,6 @@ class ItemList extends React.Component {
                 return(            
                     <li className="list-group-item pl-4">
                       <a href={item.link} >{item.title}</a>
-                      <ul className="list-group flex-column d-inline-block sub-submenu">
-                        <span className="arrow" style={{top:item.arrow}}/>
-                        {item.subtitle.map((subitem)=>{
-                          return(
-                            <li className="list-group-item pl-4">
-                            <a href={subitem.link}>{subitem.title}</a>
-                          </li>)
-                        })}
-                      
-                      </ul>
                     </li>
                 )
             })     

@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemSidebar from './ItemSidebar'
+import SubItemSidebar from './SubItemSidebar'
 import SubSubItemSidebar from './SubSubItemSidebar'
 class Sidebar extends React.Component {
     constructor(props) {
@@ -38,6 +39,7 @@ class Sidebar extends React.Component {
 
     const usersItems=[{
           title:'Wszyscy użytkownicy',
+		  link:'/users',
           arrow:'',
           subtitle:[],
           }
@@ -63,7 +65,7 @@ class Sidebar extends React.Component {
 				<div className="sidebar">
 				  <ul className="list-group flex-column d-inline-block first-menu">
 				   <SubSubItemSidebar style="fas fa-project-diagram" items={projectsItems} header='Projekty'/>
-				   <SubSubItemSidebar style="fas fa-address-book" items={usersItems} header='Użytkownicy'/>
+				   <SubItemSidebar style="fas fa-address-book" items={usersItems} header='Użytkownicy'/>
 				   {/*<ItemSidebar style="fas fa-chart-pie" link='#' header='Statystyka'/>
 				   <ItemSidebar style="fas fa-calendar" link='#' header='Harmonogram'/>
 				   <ItemSidebar style="fas fa-search" link='#' header='Szukaj'/> */}

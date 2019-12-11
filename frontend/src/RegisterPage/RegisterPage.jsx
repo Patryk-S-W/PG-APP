@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import { authenticationService } from '@/_services';
 
-class LoginPage extends React.Component {
+class RegisterPage extends React.Component {
     constructor(props) {
         super(props);
 
@@ -23,7 +23,7 @@ class LoginPage extends React.Component {
 				<div className="logo-smaller">Pozwala opiekunom, kierownikom projektów, studentom, a także firmom na łatwe zarządzanie projektami i generowanie raportów.</div>
 			</div>
             <div className="loginwrapper">
-                <h2>Strona logowania</h2>
+                <h2>Strona rejestracji</h2>
                 <Formik
                     initialValues={{
                         username: '',
@@ -50,6 +50,26 @@ class LoginPage extends React.Component {
                     render={({ errors, status, touched, isSubmitting }) => (
                         <Form>
                             <div className="form-group">
+                                <label htmlFor="firstname">Imię</label>
+                                <Field name="firstname" type="text" className={'form-control' + (errors.firstname && touched.firstname ? ' is-invalid' : '')} />
+                                <ErrorMessage name="firstname" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="lastname">Nazwisko</label>
+                                <Field name="lastname" type="text" className={'form-control' + (errors.lastname && touched.lastname ? ' is-invalid' : '')} />
+                                <ErrorMessage name="lastname" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="mail">E-mail</label>
+                                <Field name="mail" type="text" className={'form-control' + (errors.mail && touched.mail ? ' is-invalid' : '')} />
+                                <ErrorMessage name="mail" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="company">Firma</label>
+                                <Field name="company" type="text" className={'form-control' + (errors.company && touched.company ? ' is-invalid' : '')} />
+                                <ErrorMessage name="company" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group">
                                 <label htmlFor="username">Nazwa użytkownika</label>
                                 <Field name="username" type="text" className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')} />
                                 <ErrorMessage name="username" component="div" className="invalid-feedback" />
@@ -59,15 +79,20 @@ class LoginPage extends React.Component {
                                 <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                                 <ErrorMessage name="password" component="div" className="invalid-feedback" />
                             </div>
+                            <div className="form-group">
+                                <label htmlFor="confirmpassword">Hasło</label>
+                                <Field name="confirmpassword" type="password" className={'form-control' + (errors.confirmpassword && touched.confirmpassword ? ' is-invalid' : '')} />
+                                <ErrorMessage name="passconfirmpasswordword" component="div" className="invalid-feedback" />
+                            </div>
 							<div className="loginbuttons">
                             <div className="form-group">
-                                <button type="submit" className="btn btn-primary" disabled={isSubmitting}>Zaloguj</button>
+                                <button type="submit" className="btn btn-primary" disabled={isSubmitting}>Zarejestruj</button>
                                 {isSubmitting &&
                                     <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                                 }
                             </div>
                             <div className="form-group">
-								<button type="submit" className="btn btn-primary registerBtn" disabled={isSubmitting}><a href="/register">Zarejestruj</a></button>
+								<button type="submit" className="btn btn-primary registerBtn" disabled={isSubmitting}><a href="/login">Zaloguj</a></button>
                             </div>
                             </div>
                             {status &&
@@ -82,4 +107,4 @@ class LoginPage extends React.Component {
     }
 }
 
-export { LoginPage }; 
+export { RegisterPage }; 

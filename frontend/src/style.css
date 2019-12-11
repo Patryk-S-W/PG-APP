@@ -513,3 +513,16 @@ flex-direction: column;
 	font-size:14px;
 	padding:6px;
 }
+
+.registerBtn>a{color:#fff;text-decoration:none}
+.loginbuttons{display:flex}
+.loginbuttons>div{padding:0 10px}
+.vu-box{
+    border-top: 5px solid #125491;
+    border-radius: 4px;
+    margin: 32px;
+    padding: 8px;
+    box-shadow: 0 0 3px 2px #dedede;
+	margin-top:90px
+}
+.vu-center>th{padding: 6px 0 6px 12px;border-bottom: 1px solid #ddd;}
