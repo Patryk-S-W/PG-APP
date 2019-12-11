@@ -467,3 +467,49 @@ button:focus, a:focus {
     padding: 6px 0 6px 12px;
     border-bottom: 1px solid #ddd;
 }
+
+.logo{
+	font-family: Oswald, sans-serif;
+	font-size: 36px;
+	color: rgb(255, 255, 255);
+}
+
+.loginpage{
+display:flex;
+align-items:center;
+height:100vh
+}
+.loginpage>div{width:50%}
+.logowrapper{
+background-color:#125491;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction: column;
+}
+.logo-small{
+	font-family: Oswald, sans-serif;
+	font-size: 20px;
+	color: rgb(255, 255, 255);
+	margin-bottom:30px
+}
+.logo-smaller{
+	font-family: Oswald, sans-serif;
+	font-size: 13px;
+	color: rgb(255, 255, 255);
+}
+.loginwrapper{
+	padding:20px;
+	box-shadow: inset 8px 0 5px 0 #125491;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction: column;
+}
+
+.logout{
+	font-size:14px;
+	padding:6px;
+}

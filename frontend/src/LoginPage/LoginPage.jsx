@@ -8,7 +8,6 @@ class LoginPage extends React.Component {
     constructor(props) {
         super(props);
 
-        // redirect to home if already logged in
         if (authenticationService.currentUserValue) { 
             this.props.history.push('/');
         }
@@ -16,11 +15,14 @@ class LoginPage extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className="alert alert-info">
-                    U: user P: user<br />
-                    U: admin P: admin
-                </div>
+		<div className="loginpage">
+			<div className="logowrapper">
+				<span className="logo" title="Projekty Grupowe Politechniki Gdańskiej">PG²</span>
+				<span className="logo-small" title="Projekty Grupowe Politechniki Gdańskiej">Projekty Grupowe Politechniki Gdańskiej</span>
+				<div className="logo-smaller">Projekty Grupowe Politechniki Gdańskiej to system umożliwiający zarządzanie projektami grupowymi na wydziale Fizyki Technicznej i Matematyki Stosowanej.</div>
+				<div className="logo-smaller">Pozwala opiekunom, kierownikom projektów, studentom, a także firmom na łatwe zarządzanie projektami i generowanie raportów.</div>
+			</div>
+            <div className="loginwrapper">
                 <h2>Strona logowania</h2>
                 <Formik
                     initialValues={{
@@ -70,6 +72,7 @@ class LoginPage extends React.Component {
                     )}
                 />
             </div>
+			</div>
         )
     }
 }
