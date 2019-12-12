@@ -31,7 +31,7 @@ class Sidebar extends React.Component {
             title:'Zapisz się',
             arrow:'113px',
             subtitle:[
-				{title:'Zapisz sie do projektu', link:"#"},
+				{title:'Zapisz sie do projektu', link:"/signup"},
 				{title:'Przypisz do projektu',link:"#"}
 			]
           }]
