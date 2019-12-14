@@ -29,7 +29,7 @@ app.use(limiter)
 app.get('/users', db.getUsers);
 
 // api routes
-//app.use('/users', require('./users/users.controller'));
+app.use('/users', require('./users/users.controller'));
 app.get('/', (request, response) => {
   response.json({ info: 'API' })
 })

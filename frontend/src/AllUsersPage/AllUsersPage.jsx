@@ -36,7 +36,7 @@ class AllUsersPage extends React.Component {
 									</thead>
 									<tbody>
 										{users.map(user =>
-										<tr key={user.id}><td>{user.id}</td><td>{user.first_name}</td><td>{user.last_name}</td><td>{user.company}</td><td>{user.mail}</td><td>{user.phone}</td></tr>
+										<tr key={user.id}><td>{user.id}</td><td>{user.first_name}</td><td>{user.last_name}</td><td>{user.company}</td><td>{user.email}</td><td>{user.phone}</td></tr>
 										)}
 									</tbody>
 									</table>

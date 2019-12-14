@@ -11,18 +11,8 @@ const pool = new Pool({
 
 
 const getUsers = (request, response) => {
-	pool.query('SELECT id, firstname as first_name, lastname as last_name, company, mail, phone FROM users ORDER BY id ASC', (error, results) => {
+	pool.query('SELECT id, firstname as first_name, lastname as last_name, company, email, phone FROM users ORDER BY id ASC', (error, results) => {
 		if (error) {
-			throw error
-		}
-		response.status(200).json(results.rows)
-	})
-}
-
-
-const createUser = (request, response) => {
-	pool.query('', (error, results) => {
-    if (error) {
 			throw error
 		}
 		response.status(200).json(results.rows)
