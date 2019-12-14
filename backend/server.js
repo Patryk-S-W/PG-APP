@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/test', db.getUsers)
+app.get('/users', db.getUsers);
 
 // api routes
 app.use('/users', require('./users/users.controller'));

@@ -9,7 +9,7 @@ const pool = new Pool({
 
 
 const getUsers = (request, response) => {
-	pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
+	pool.query('SELECT id, firstname as first_name, lastname as last_name, company, mail, phone FROM users ORDER BY id ASC', (error, results) => {
 		if (error) {
 			throw error
 		}
@@ -18,7 +18,7 @@ const getUsers = (request, response) => {
 }
 
 const createUser = (request, response) => {
-	pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
+	pool.query('', (error, results) => {
 		if (error) {
 			throw error
 		}
