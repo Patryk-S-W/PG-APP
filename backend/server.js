@@ -17,6 +17,7 @@ app.get('/test', db.getUsers)
 
 // api routes
 app.use('/users', require('./users/users.controller'));
+app.use('/projects', require('./projects/project.controller'));
 
 
 // file upload

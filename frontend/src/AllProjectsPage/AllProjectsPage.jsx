@@ -44,7 +44,9 @@ class AllProjectsPage extends React.Component {
 										<tr><td>4</td><td>Katarzyna K.</td><td>Fizyka</td><td>!dB4w</td><td>Anastazy</td><td>Badanie przyciagania ziemskiego czujnikiem w smartfonie</td></tr>
 									</tbody>
 									</table>
+									
 								}
+								  
 								</div>
 							</div>
 						</div>
