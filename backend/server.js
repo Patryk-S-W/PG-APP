@@ -26,7 +26,7 @@ const limiter = rateLimit({
 
 app.use(limiter)
 
-app.get('/test', db.getUsers)
+app.get('/users', db.getUsers);
 
 // api routes
 //app.use('/users', require('./users/users.controller'));

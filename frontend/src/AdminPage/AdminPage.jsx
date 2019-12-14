@@ -26,7 +26,7 @@ class AdminPage extends React.Component {
                     {users &&
                         <ul>
                             {users.map(user =>
-                                <li key={user.id}>{user.firstName} {user.lastName}</li>
+                                <li key={user.id}>{user.first_name} {user.last_name}</li>
                             )}
                         </ul>
                     }

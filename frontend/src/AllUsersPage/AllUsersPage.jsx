@@ -4,21 +4,21 @@ import { userService } from '@/_services';
 import { Sidebar } from '@/Sidebar';
 import { Navbar } from '@/Navbar';
 
-class MyProjectsPage extends React.Component {
+class AllUsersPage extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            students: null
+            users: null
         };
     }
 
     componentDidMount() {
-        userService.getAllStudents().then(students => this.setState({ students }));
+        userService.getAll().then(users => this.setState({ users }));
     }
 
     render() {
-        const { students } = this.state;
+        const { users } = this.state;
         return (
             <div>
 				<Sidebar />
@@ -27,18 +27,17 @@ class MyProjectsPage extends React.Component {
 					<div className="container-fluid">
 						<div className="vu-box">
 							<div>
-								<h1>Wszyscy studenci</h1>
+								<h1>Wszyscy użytkownicy</h1>
 								<div>
-								{students &&
+								{users &&
 									<table className="lessons-table">
 									<thead>
-										<tr className="vu-center"><th>ID</th><th>Opiekun</th><th>Typ</th><th>Klucz</th><th>Kierownik</th><th>Opis</th></tr>
+										<tr className="vu-center"><th>ID</th><th>Imię</th><th>Nazwisko</th><th>Firma</th><th>E-mail</th><th>Telefon</th></tr>
 									</thead>
 									<tbody>
-										{/*students.map(user =>
+										{users.map(user =>
 										<tr key={user.id}><td>{user.id}</td><td>{user.first_name}</td><td>{user.last_name}</td><td>{user.company}</td><td>{user.mail}</td><td>{user.phone}</td></tr>
-										)*/}
-										<tr><td>4</td><td>Katarzyna K.</td><td>Fizyka</td><td>!dB4w</td><td>Anastazy</td><td>Badanie przyciagania ziemskiego czujnikiem w smartfonie</td><td><a href="/sendraport">Prześlij raport</a></td></tr>
+										)}
 									</tbody>
 									</table>
 								}
@@ -52,4 +51,4 @@ class MyProjectsPage extends React.Component {
     }
 }
 
-export { MyProjectsPage };
+export { AllUsersPage };
