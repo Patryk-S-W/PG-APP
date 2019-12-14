@@ -16,9 +16,7 @@ import { ClientsPage } from '@/ClientsPage';
 import { SendRaportPage } from '@/SendRaportPage';
 import { MyProjectsPage } from '@/MyProjectsPage';
 import { AllProjectsPage } from '@/AllProjectsPage';
-
-import axios from 'axios';
-import config from 'config';
+import {SignUpPage}  from '@/SignUpPage';
 
 class App extends React.Component {
     constructor(props) {
@@ -32,6 +30,7 @@ class App extends React.Component {
 				<PrivateRoute exact path="/" component={HomePage} />
 				<Route path="/register" component={RegisterPage} />
 				<PrivateRoute path="/home" component={HomePage} />
+				<PrivateRoute path="/signup" component={SignUpPage} />
 				<PrivateRoute path="/myprojects" component={MyProjectsPage} />
 				<PrivateRoute path="/projects" component={AllProjectsPage} />
 				<PrivateRoute path="/users" component={AllUsersPage} />
