@@ -8,12 +8,14 @@ class CreateProjectPage extends React.Component {
         super(props);
 
         this.state = {
-            students: null,
+            projects:[],
             project:{
+                id:null,
                 supervisor:"",
                 manager:'',
                 description:"",
                 key:"",
+                raports:'',
                 users:[],
                 type:"",
             }
@@ -22,10 +24,17 @@ class CreateProjectPage extends React.Component {
     }
 
     componentDidMount() {
-        projectService.getAllProjects().then(students =>{console.log(students);return this.setState({ students })});
+        projectService.getAllProjects()
+        .then(projects =>{this.setState({ projects}); return projects.length+1})
+        .then(nextID=>this.setState(prevState => ({
+            project: {                   
+                ...prevState.project,    
+                id:nextID 
+            }
+        })))      
     }
     render() {
-        const { students } = this.state;
+        const { projects } = this.state;
         return (
             <div>
 				<Sidebar />
@@ -74,15 +83,17 @@ class CreateProjectPage extends React.Component {
                                           this.setState(prevState => ({
                                               project: {                   
                                                   ...prevState.project,    
-                                                  type:event.target.value  
+                                                  description:event.target.value  
                                               }
                                           }))}/>
                                          
-                                         <button type="button" onClick={()=>projectService.addProjects(this.state.project).catch(err=>err)} className="btn btn-success btn-block">Stwórz</button> 
+                                         <button type="button" onClick={()=>{
+                                             projectService.addProject(this.state.project)
+                                             .then(project=> projectService.getAllProjects().then(projects =>console.log(projects)))
+                                             .catch(err=>alert("Wystąpił błąd przy dodawaniu projektu"))}}
+                                              className="btn btn-success btn-block">Stwórz</button> 
        
-                                         {students && students.map(user =>
-										<tr key={user.id}><td>{user.id}</td></tr>
-										)}
+
                               </div>       
 							</div>
 						</div>

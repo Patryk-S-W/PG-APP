@@ -4,7 +4,8 @@ import { authHeader, handleResponse } from '@/_helpers';
 export const projectService = {
     getAllProjects,
     getProjectsById,
-    addProjects
+    addProject,
+    addUserToProject
 };
 
 function getAllProjects() {
@@ -16,12 +17,21 @@ function getProjectsById(id) {
     const requestOptions = { method: 'GET', headers: authHeader() };
     return fetch(`${config.apiUrl}/projects/${id}`, requestOptions).then(handleResponse);
 }
-function addProjects(project) {
+function addProject(project) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ project })     
+        body: JSON.stringify(project)     
     };
     return fetch(`${config.apiUrl}/projects/addproject`, requestOptions)
+    .then(handleResponse)
+}
+function addUserToProject(idUser,idProject) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({idUser,idProject})     
+    };
+    return fetch(`${config.apiUrl}/projects/addusertoproject`, requestOptions)
     .then(handleResponse)
 }

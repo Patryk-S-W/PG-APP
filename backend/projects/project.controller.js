@@ -8,6 +8,7 @@ const Role = require('_helpers/role');
 // routes
 router.post('/authenticate', authenticate); 
 router.post('/addproject', addProject);    // public route
+router.post('/addusertoproject', addUserToProject); 
 router.get('/', authorize(Role.Admin), getAllProjects); // admin only
 router.get('/:id', authorize(), getProjectById);       // all authenticated users
 
@@ -33,7 +34,12 @@ function getProjectById(req, res, next) {
         .catch(err => next(err));;
 }
 function addProject(req, res, next) {
-    projectService.addProject(req.body.project)
+    projectService.addProject(req.body)
         .then(project => project ? res.json(project) : res.sendStatus(404))
+        .catch(err => next(err));;
+}
+function addUserToProject(req, res, next) {
+    projectService.addUserToProject(req.body.idUser,req.body.idProject)
+        .then(user => user ? res.json(user) : res.sendStatus(404))
         .catch(err => next(err));;
 }
