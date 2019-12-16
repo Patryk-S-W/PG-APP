@@ -36,7 +36,7 @@ class AllProjectsPage extends React.Component {
 									</thead>
 									<tbody>
 										{/*students.map(user =>
-										<tr key={user.id}><td>{user.id}</td><td>{user.firstName}</td><td>{user.lastName}</td><td>{user.company}</td><td>{user.mail}</td><td>{user.phone}</td></tr>
+										<tr key={user.id}><td>{user.id}</td><td>{user.first_name}</td><td>{user.last_name}</td><td>{user.company}</td><td>{user.mail}</td><td>{user.phone}</td></tr>
 										)*/}
 										<tr><td>1</td><td>Ewa E.</td><td>Chemia, Biologia</td><td>6hU2@</td><td>Anastazy</td><td>Modelling charge transfer processes in C 2+ –tetrahydrofuran collision for ion-induced radiation damage in DNA building blocks</td></tr>
 										<tr><td>2</td><td>Norbert D.</td><td>Elektronika</td><td>5Y8k$</td><td>Anastazy</td><td>Dron spadający</td></tr>

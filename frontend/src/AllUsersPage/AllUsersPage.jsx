@@ -4,21 +4,21 @@ import { userService } from '@/_services';
 import { Sidebar } from '@/Sidebar';
 import { Navbar } from '@/Navbar';
 
-class CuratorsPage extends React.Component {
+class AllUsersPage extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            curators: null
+            users: null
         };
     }
 
     componentDidMount() {
-        userService.getAllCurators().then(curators => this.setState({ curators }));
+        userService.getAll().then(users => this.setState({ users }));
     }
 
     render() {
-        const { curators } = this.state;
+        const { users } = this.state;
         return (
             <div>
 				<Sidebar />
@@ -27,16 +27,18 @@ class CuratorsPage extends React.Component {
 					<div className="container-fluid">
 						<div className="vu-box">
 							<div>
-								<h1>Wszyscy opiekunowie</h1>
+								<h1>Wszyscy użytkownicy</h1>
 								<div>
-								{curators &&
+								{users &&
 									<table className="lessons-table">
+									<thead>
 										<tr className="vu-center"><th>ID</th><th>Imię</th><th>Nazwisko</th><th>Firma</th><th>E-mail</th><th>Telefon</th></tr>
-										{/*curators.map(user =>
-										<tr key={user.id}><td>{user.id}</td><td>{user.first_name}</td><td>{user.last_name}</td><td>{user.company}</td><td>{user.mail}</td><td>{user.phone}</td></tr>
-										)*/}
-										<tr><td>3</td><td>Jakiś</td><td>Opiekun</td><td>YYY</td><td>1@1.pl</td><td>888777666</td></tr>
-										<tr><td>6</td><td>Anastazy</td><td>Wiśniewski</td><td>XXX</td><td>1@1.pl</td><td>888777666</td></tr>
+									</thead>
+									<tbody>
+										{users.map(user =>
+										<tr key={user.id}><td>{user.id}</td><td>{user.first_name}</td><td>{user.last_name}</td><td>{user.company}</td><td>{user.email}</td><td>{user.phone}</td></tr>
+										)}
+									</tbody>
 									</table>
 								}
 								</div>
@@ -49,4 +51,4 @@ class CuratorsPage extends React.Component {
     }
 }
 
-export { CuratorsPage };
+export { AllUsersPage };

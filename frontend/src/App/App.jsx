@@ -8,7 +8,7 @@ import { HomePage } from '@/HomePage';
 import { AdminPage } from '@/AdminPage';
 import { LoginPage } from '@/LoginPage';
 import { RegisterPage } from '@/RegisterPage';
-import { UsersPage } from '@/UsersPage';
+import { AllUsersPage } from '@/AllUsersPage';
 import { StudentsPage } from '@/StudentsPage';
 import { CuratorsPage } from '@/CuratorsPage';
 import { LeadersPage } from '@/LeadersPage';
@@ -35,7 +35,7 @@ class App extends React.Component {
 				<PrivateRoute path="/myprojects" component={MyProjectsPage} />
 				<PrivateRoute path="/projects" component={AllProjectsPage} />
 				<PrivateRoute path="/createproject" component={CreateProjectPage} />
-				<PrivateRoute path="/users" component={UsersPage} />
+				<PrivateRoute path="/users" component={AllUsersPage} />
 				<PrivateRoute path="/students" component={StudentsPage} />
 				<PrivateRoute path="/curators" component={CuratorsPage} />
 				<PrivateRoute path="/leaders" component={LeadersPage} />
