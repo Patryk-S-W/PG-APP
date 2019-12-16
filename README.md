@@ -23,10 +23,10 @@ Studenci 7 semestru Fizyki Technicznej rocznik 2016/2017 w składzie:
 
 #### Przygotowanie środowiska do odpalenia aplikacji:
 1. Stwórz bazę danych przy pomocy pliku SQL schema.sql, który znajduje się w folderze ...backend/database
-2. Uruchom konsolę w folderze backend i zainstaluj pakiety używając “npm install”
-3. Uruchom backendową część aplikacji przy pomocy “npm start”
-4. Uruchom konsolę w folderze frontend i zainstaluj pakiety używając “npm install”
-5. Uruchom frontendową część aplikacji przy pomocy “npm start”
+2. Uruchom konsolę w folderze backend i zainstaluj pakiety używając ```npm install```
+3. Uruchom backendową część aplikacji przy pomocy ```npm start```
+4. Uruchom konsolę w folderze frontend i zainstaluj pakiety używając ```npm install```
+5. Uruchom frontendową część aplikacji przy pomocy ```npm start```
 	
 
 
@@ -52,7 +52,7 @@ Students of the 7th semester of Technical Physics 2016/2017 composed of:
 
 #### Prepare environment to start the application:
 1. Create a database using SQL file schema.sql, which is in  ...backend/database folder
-2. Start the command line in the backend folder and install packages using “npm install”
-3. Start the backend part of the application using “npm start”
-4. Start the command line in the frontend folder and install packages using “npm install”
-5. Start the frontend part of the application using “npm start”
+2. Start the command line in the backend folder and install packages using ```npm install```
+3. Start the backend part of the application using ```npm start```
+4. Start the command line in the frontend folder and install packages using ```npm install```
+5. Start the frontend part of the application using ```npm start```
