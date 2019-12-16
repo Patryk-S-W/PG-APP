@@ -17,6 +17,7 @@ import { SendRaportPage } from '@/SendRaportPage';
 import { MyProjectsPage } from '@/MyProjectsPage';
 import { AllProjectsPage } from '@/AllProjectsPage';
 import {SignUpPage}  from '@/SignUpPage';
+import {CreateProjectPage} from '@/CreateProjectPage'
 
 class App extends React.Component {
     constructor(props) {
@@ -33,6 +34,7 @@ class App extends React.Component {
 				<PrivateRoute path="/signup" component={SignUpPage} />
 				<PrivateRoute path="/myprojects" component={MyProjectsPage} />
 				<PrivateRoute path="/projects" component={AllProjectsPage} />
+				<PrivateRoute path="/createproject" component={CreateProjectPage} />
 				<PrivateRoute path="/users" component={AllUsersPage} />
 				<PrivateRoute path="/students" component={StudentsPage} />
 				<PrivateRoute path="/curators" component={CuratorsPage} />

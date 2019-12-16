@@ -30,6 +30,9 @@ app.get('/users', db.getUsers);
 
 // api routes
 app.use('/users', require('./users/users.controller'));
+app.use('/projects', require('./projects/project.controller'));
+
+
 app.get('/', (request, response) => {
   response.json({ info: 'API' })
 })
