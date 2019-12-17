@@ -5,11 +5,16 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const errorHandler = require('_helpers/error-handler');
 const db = require('./database/queries');
-const multer = require('multer')
-const helmet = require('helmet')
-const compression = require('compression')
-const rateLimit = require('express-rate-limit')
-const { body, check } = require('express-validator')
+const multer = require('multer');
+const helmet = require('helmet');
+const compression = require('compression');
+const rateLimit = require('express-rate-limit');
+const { body, check } = require('express-validator');
+
+const config = require('./config');
+//const router = require('./router');
+const authController = require('users/authenticate.controller');
+const validate = require('_helpers/validation');
 
 app.use(bodyParser.urlencoded({
 	extended: true
@@ -26,15 +31,25 @@ const limiter = rateLimit({
 
 app.use(limiter)
 
+
 app.get('/users', db.getUsers);
 
 // api routes
 app.use('/users', require('./users/users.controller'));
-app.use('/projects', require('./projects/project.controller'));
-
+//app.use('/projects', require('./projects/project.controller'));
+/*app.post(
+  '/signup',
+  validate.userSignupValidation,
+  authController.createUser,
+);
+app.post(
+  '/login',
+  validate.userLoginValidation,
+  authController.loginUser,
+);*/
 
 app.get('/', (request, response) => {
-  response.json({ info: 'API' })
+    response.json({ info: 'API' })
 })
 app.get('/users', db.getUsers)
 app.get('/users/:id', db.getUserById)
@@ -79,6 +94,4 @@ const origin = {
 }
 app.use(cors(origin))
 const port = isProduction ? 80 : 4000;
-const server = app.listen(port, function() {
-	console.log('Server listening on port ' + port);
-});
+const server = app.listen(port, () => console.log('Server listening on port '+ port));

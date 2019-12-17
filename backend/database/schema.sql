@@ -3,8 +3,8 @@ CREATE TABLE users (
   username VARCHAR(255) UNIQUE,
   email VARCHAR(255),
   email_verified BOOLEAN,
-  date_created DATE,
-  last_login DATE,
+  date_created TIMESTAMP,
+  last_login TIMESTAMP,
   password VARCHAR(255) NOT NULL,
   firstname VARCHAR(32),
   lastname VARCHAR(32),
@@ -56,3 +56,21 @@ CREATE TABLE projects (
   start_time TIMESTAMP WITH TIME ZONE UNIQUE,
   end_time TIMESTAMP WITH TIME ZONE UNIQUE
 );
+
+INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
+VALUES (1, 'user', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Admin');
+INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
+VALUES (2, 'user1', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Admin');
+INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
+VALUES (3, 'user2', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Admin');
+INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
+VALUES (4, 'user3', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Admin');
+
+
+
+DROP TABLE projects;
+DROP TABLE appointments;
+DROP TABLE messages;
+DROP TABLE comments;
+DROP TABLE posts;
+DROP TABLE users;

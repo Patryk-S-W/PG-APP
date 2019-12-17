@@ -1,10 +1,12 @@
+const config = require('config.js');
+
 const Pool = require('pg').Pool
 const pool = new Pool({
-	user: 'admin',
-	host: 'localhost',
-	database: 'api',
-	password: 'admin',
-	port: 5432,
+	user: config.dbUser,
+	host: config.dbHost,
+	database: config.dbDatabase,
+	password: config.dbPassword,
+	port: config.dbPort,
 	max: 10,
 	idleTimeoutMillis: 30000,
 })
@@ -13,7 +15,7 @@ const pool = new Pool({
 const getUsers = (request, response) => {
 	pool.query('SELECT uid, firstname as first_name, lastname as last_name, company, email, phone FROM users ORDER BY uid ASC', (error, results) => {
 		if (error) {
-			throw error
+			response.status(400).json({error})
 		}
 		response.status(200).json(results.rows)
 	})
@@ -23,6 +25,33 @@ const getUserById = (request, response) => {
     const id = parseInt(request.params.id)
 
     pool.query('SELECT * FROM users WHERE uid = $1', [id], (error, results) => {
+
+		if (error) {
+			throw error
+		}
+		response.status(200).json(results.rows)
+	})
+}
+
+
+const getUserByUsernameAndPassword = (request, response) => {
+    const username = parseInt(request.params.username)
+    const password = parseInt(request.params.password)
+
+    pool.query('SELECT * FROM users WHERE username = $1 AND password = $2', [username, password], (error, results) => {
+
+		if (error) {
+			throw error
+		}
+		response.status(200).json(results.rows)
+	})
+}
+
+
+const getUserByUsername = (request, response) => {
+    const username = parseInt(request.params.username)
+
+    pool.query('SELECT * FROM users WHERE username = $1', [username], (error, results) => {
 
 		if (error) {
 			throw error
@@ -124,8 +153,11 @@ const getProjects = (request, response) => {
 }
 
 module.exports = {
+	pool,
 	getUsers,
 	getUserById,
+	getUserByUsername,
+	getUserByUsernameAndPassword,
 	createUser,
 	updateUser,
 	deleteUser,
