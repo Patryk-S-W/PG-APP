@@ -10,7 +10,7 @@ class ItemList extends React.Component {
         return (     
             items.map((item)=>{
                 return(            
-                    <li className="list-group-item pl-4">
+                    <li key={item.title} className="list-group-item pl-4">
                       <a href={item.link} >{item.title}</a>
                     </li>
                 )
@@ -32,7 +32,7 @@ export default class ItemSidebar extends React.Component {
 			    <a href={link}><i className={this.props.style} aria-hidden="true"><span className="ml-2 align-middle">{header}</span></i></a>
 			    <ul className="list-group flex-column d-inline-block submenu">
 					{items.map((item)=>{
-						return( <ItemList itemslist={[item]}/>)
+						return( <ItemList key={item.title} itemslist={[item]}/>)
 					})}
 			    </ul>
 			</li>
