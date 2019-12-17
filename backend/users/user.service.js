@@ -8,7 +8,7 @@ const express = require('express');
 const db = require('database/queries');
 
 // TODO: użytkownicy zapisani dla ułatwienia testów, podłaczyć potem baze danych
-/*
+
 const users = [
     { id: 1, username: 'admin', password: 'admin', first_name: 'Jakiś', last_name: 'User', mail: '1@1.pl', company: 'XXX', phone: '888777666', role: Role.Admin },
     { id: 2, username: 'user', password: 'user', first_name: 'Jakiś', last_name: 'User', mail: '1@2.pl', company: 'XXX', phone: '888777666', role: Role.Admin },
@@ -20,7 +20,7 @@ const users = [
     { id: 8, username: 'Rafał', password: 'Rafał', first_name: 'Rafał', last_name: 'Klifeld', mail: 'agatawicikowska@gmail.com', company: 'XXX', phone: '888777666', role: Role.Admin },
     { id: 9, username: 'Radek', password: 'Radek', first_name: 'Radek', last_name: 'Rudziewicz', mail: '1@1.pl', company: 'XXX', phone: '888777666', role: Role.Admin },
     { id: 10, username: 'Patryk', password: 'Patryk', first_name: 'Patryk', last_name: 'Sadowski', mail: 'patryk@patryksadowski.pl', company: 'AAA', phone: '888888888', role: Role.Admin }
-];*/
+];
 
 module.exports = {
     authenticate,
@@ -29,13 +29,13 @@ module.exports = {
 };
 
 
-/*
+
 async function authenticate({ username, password }) {
     const user = users.find(u => u.username === username && u.password === password);
 	console.log(user);
 	
 	
-	console.log(getUserByUsernameAndPassword);
+	//console.log(getUserByUsernameAndPassword);
 	//const user = await db.getUserByUsername(req.body.username);
     //const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
     //if (isPasswordCorrect) {
@@ -49,9 +49,9 @@ async function authenticate({ username, password }) {
             token
         };
     }
-}*/
+}
 
-
+/*
 const authenticate = params => {
       return Users.findOne({
           where: {
@@ -73,7 +73,7 @@ const authenticate = params => {
           return token;
       });
 }
-
+*/
 
 async function getAll() {
     return users.map(u => {
