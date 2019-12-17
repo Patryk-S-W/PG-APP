@@ -14,7 +14,7 @@ class CuratorsPage extends React.Component {
     }
 
     componentDidMount() {
-        userService.getAllCurators().then(curators => this.setState({ curators }));
+        userService.getByRole('Admin').then(curators => this.setState({ curators }));
     }
 
     render() {
@@ -31,12 +31,14 @@ class CuratorsPage extends React.Component {
 								<div>
 								{curators &&
 									<table className="lessons-table">
+									<thead>
 										<tr className="vu-center"><th>ID</th><th>Imię</th><th>Nazwisko</th><th>Firma</th><th>E-mail</th><th>Telefon</th></tr>
-										{/*curators.map(user =>
-										<tr key={user.id}><td>{user.id}</td><td>{user.first_name}</td><td>{user.last_name}</td><td>{user.company}</td><td>{user.mail}</td><td>{user.phone}</td></tr>
-										)*/}
-										<tr><td>3</td><td>Jakiś</td><td>Opiekun</td><td>YYY</td><td>1@1.pl</td><td>888777666</td></tr>
-										<tr><td>6</td><td>Anastazy</td><td>Wiśniewski</td><td>XXX</td><td>1@1.pl</td><td>888777666</td></tr>
+									</thead>
+									<tbody>
+										{curators.map(user =>
+										<tr key={user.uid}><td>{user.uid}</td><td>{user.firstname}</td><td>{user.lastname}</td><td>{user.company}</td><td>{user.email}</td><td>{user.phone}</td></tr>
+										)}
+									</tbody>
 									</table>
 								}
 								</div>

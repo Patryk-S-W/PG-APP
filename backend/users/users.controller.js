@@ -44,14 +44,14 @@ function getUsers(req, res, next) {
 
 function getUserById(req, res, next) {
     const currentUser = req.user;
-    const id = parseInt(req.params.id);
+    const uid = parseInt(req.params.uid);
 
     // only allow admins to access other user records
     if (id !== currentUser.sub && currentUser.role !== Role.Admin) {
         return res.status(401).json({ message: 'Unauthorized' });
     }
 
-    db.getUserById(req.params.id)
+    db.getUserById(req.params.uid)
         .then(user => user ? res.json(user) : res.sendStatus(404))
         .catch(err => next(err));
 }

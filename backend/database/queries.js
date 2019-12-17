@@ -13,7 +13,7 @@ const pool = new Pool({
 
 
 const getUsers = (request, response) => {
-	pool.query('SELECT uid, firstname as first_name, lastname as last_name, company, email, phone FROM users ORDER BY uid ASC', (error, results) => {
+	pool.query('SELECT uid, firstname, lastname, company, email, phone, role FROM users ORDER BY uid ASC', (error, results) => {
 		if (error) {
 			response.status(400).json({error})
 		}
@@ -22,12 +22,25 @@ const getUsers = (request, response) => {
 }
     
 const getUserById = (request, response) => {
-    const id = parseInt(request.params.id)
+    const uid = parseInt(request.params.uid)
 
-    pool.query('SELECT * FROM users WHERE uid = $1', [id], (error, results) => {
+    pool.query('SELECT * FROM users WHERE uid = $1', [uid], (error, results) => {
 
 		if (error) {
-			throw error
+			response.status(400).json({error})
+		}
+		response.status(200).json(results.rows)
+	})
+}
+
+
+const getUserByRole = (request, response) => {
+    const role = parseInt(request.params.role)
+
+    pool.query('SELECT * FROM users WHERE role = $1', [role], (error, results) => {
+
+		if (error) {
+			response.status(400).json({error})
 		}
 		response.status(200).json(results.rows)
 	})
@@ -41,7 +54,7 @@ const getUserByUsernameAndPassword = (request, response) => {
     pool.query('SELECT * FROM users WHERE username = $1 AND password = $2', [username, password], (error, results) => {
 
 		if (error) {
-			throw error
+			response.status(400).json({error})
 		}
 		response.status(200).json(results.rows)
 	})
@@ -54,7 +67,7 @@ const getUserByUsername = (request, response) => {
     pool.query('SELECT * FROM users WHERE username = $1', [username], (error, results) => {
 
 		if (error) {
-			throw error
+			response.status(400).json({error})
 		}
 		response.status(200).json(results.rows)
 	})
@@ -65,7 +78,7 @@ const createUser = (request, response) => {
 
 	pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email], (error, results) => {
 		if (error) {
-			throw error
+			response.status(400).json({error})
 		}
 		response.status(201).send(`User added with ID: ${result.insertId}`)
 	})
@@ -80,7 +93,7 @@ const updateUser = (request, response) => {
     [name, email, id],
     (error, results) => {
       if (error) {
-        throw error
+        response.status(400).json({error})
       }
       response.status(200).send(`User modified with ID: ${id}`)
     }
@@ -92,7 +105,7 @@ const deleteUser = (request, response) => {
 
   pool.query('DELETE FROM users WHERE uid = $1', [id], (error, results) => {
     if (error) {
-      throw error
+      response.status(400).json({error})
     }
     response.status(200).send(`User deleted with ID: ${id}`)
   })
@@ -101,7 +114,7 @@ const deleteUser = (request, response) => {
 const createProject = (request, response) => {
 	pool.query('', (error, results) => {
 		if (error) {
-			throw error
+			response.status(400).json({error})
 		}
 		response.status(200).json(results.rows)
 	})
@@ -110,7 +123,7 @@ const createProject = (request, response) => {
 const createRaport = (request, response) => {
 	pool.query('', (error, results) => {
 		if (error) {
-			throw error
+			response.status(400).json({error})
 		}
 		response.status(200).json(results.rows)
 	})
@@ -119,7 +132,7 @@ const createRaport = (request, response) => {
 const createSchedule = (request, response) => {
 	pool.query('', (error, results) => {
 		if (error) {
-			throw error
+			response.status(400).json({error})
 		}
 		response.status(200).json(results.rows)
 	})
@@ -128,7 +141,7 @@ const createSchedule = (request, response) => {
 const getAvailableProjects = (request, response) => {
 	pool.query('', (error, results) => {
 		if (error) {
-			throw error
+			response.status(400).json({error})
 		}
 		response.status(200).json(results.rows)
 	})
@@ -137,7 +150,7 @@ const getAvailableProjects = (request, response) => {
 const getParticipants = (request, response) => {
 	pool.query('', (error, results) => {
 		if (error) {
-			throw error
+			response.status(400).json({error})
 		}
 		response.status(200).json(results.rows)
 	})
@@ -146,7 +159,7 @@ const getParticipants = (request, response) => {
 const getProjects = (request, response) => {
 	pool.query('', (error, results) => {
 		if (error) {
-			throw error
+			response.status(400).json({error})
 		}
 		response.status(200).json(results.rows)
 	})
@@ -156,6 +169,7 @@ module.exports = {
 	pool,
 	getUsers,
 	getUserById,
+	getUserByRole,
 	getUserByUsername,
 	getUserByUsernameAndPassword,
 	createUser,

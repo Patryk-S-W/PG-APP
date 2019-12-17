@@ -51,6 +51,7 @@ class SignUpPage extends React.Component {
 				<Navbar />
 				<div className="vu-content">
 				  <div className="container-fluid column-flex">
+					<div className="vu-box">
 						<h1 className="hheader">Zapisz się do projektu</h1>
             
           	<div>
@@ -89,6 +90,7 @@ class SignUpPage extends React.Component {
        
         	</div>
          
+				  </div>
 				  </div>
 				</div>
             </div>

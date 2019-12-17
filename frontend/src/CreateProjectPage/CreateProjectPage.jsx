@@ -40,8 +40,7 @@ class CreateProjectPage extends React.Component {
 				<Sidebar />
 				<Navbar />
 				<div className="vu-content">
-					<div className="container-fluid">
-					
+					<div className="container-fluid column-flex">
                         <div className="vu-box">
                         <div>
 								<h1>Stwórz projekt</h1>

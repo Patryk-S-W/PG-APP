@@ -51,6 +51,7 @@ class SendRaportPage extends React.Component {
 				<Navbar />
 				<div className="vu-content">
 				  <div className="container-fluid column-flex">
+					<div className="vu-box">
 						<h1 className="hheader">Badanie przyciagania ziemskiego czujnikiem w smartfonie</h1>
 						<table className="lessons-table">
 							<tbody>
@@ -61,16 +62,17 @@ class SendRaportPage extends React.Component {
 							<tr><th>Opis:</th><td>Badanie przyciagania ziemskiego czujnikiem w smartfonie</td></tr>
 							</tbody>
 						</table>
-					<div className="upload-box">
-						<h3 className="hheader">Prześlij raport</h3>
-						<input type="file" name="file" onChange={this.onChangeHandler}/>    
-						<button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Prześlij raport</button> 
-					</div>
+						<div className="upload-box">
+							<h3 className="hheader">Prześlij raport</h3>
+							<input type="file" name="file" onChange={this.onChangeHandler}/>    
+							<button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Prześlij raport</button> 
+						</div>
 					
-					<div className="upload-box">
-						<h3 className="hheader">Dodaj komentarz</h3>
-						<textarea  rows="4"  cols="50"/>    
-						<button type="button" className="btn btn-success btn-block">Wyślij</button> 
+						<div className="upload-box">
+							<h3 className="hheader">Dodaj komentarz</h3>
+							<textarea  rows="4"  cols="50"/>    
+							<button type="button" className="btn btn-success btn-block">Wyślij</button> 
+						</div>
 					</div>
 				  </div>
 				</div>

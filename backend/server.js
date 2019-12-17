@@ -33,6 +33,11 @@ app.use(limiter)
 
 
 app.get('/users', db.getUsers);
+app.get('/users/uid/:uid', db.getUserById);
+app.get('/users/role/:role', db.getUserByRole);
+app.post('/users', db.createUser);
+app.put('/users/uid/:uid', db.updateUser);
+app.delete('/users/uid/:uid', db.deleteUser);
 
 // api routes
 app.use('/users', require('./users/users.controller'));
@@ -51,16 +56,12 @@ app.post(
 app.get('/', (request, response) => {
     response.json({ info: 'API' })
 })
-app.get('/users', db.getUsers)
-app.get('/users/:id', db.getUserById)
-app.post('/users', db.createUser)
-app.put('/users/:id', db.updateUser)
-app.delete('/users/:id', db.deleteUser)
+
 
 // file upload
 const storage = multer.diskStorage({
 	destination: function(req, file, cb) {
-		cb(null, 'uploadRaports')
+		cb(null, 'uploads')
 	},
 	filename: function(req, file, cb) {
 		cb(null, Date.now() + '-' + file.originalname)
@@ -72,7 +73,7 @@ const upload = multer({
 }).single('file')
 
 
-app.post('/uploadRaports', function(req, res) {
+app.post('/uploads', function(req, res) {
 	upload(req, res, function(err) {
 		if (err instanceof multer.MulterError) {
 			return res.status(500).json(err)

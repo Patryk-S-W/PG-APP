@@ -82,8 +82,8 @@ async function getAll() {
     });
 }
 
-async function getById(id) {
-    const user = users.find(u => u.id === parseInt(id));
+async function getById(uid) {
+    const user = users.find(u => u.uid === parseInt(uid));
     if (!user) return;
     const { password, ...userWithoutPassword } = user;
     return userWithoutPassword;

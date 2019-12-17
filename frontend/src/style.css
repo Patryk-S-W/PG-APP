@@ -522,8 +522,7 @@ flex-direction: column;
     border-radius: 4px;
     margin: 32px;
     padding: 8px;
-    box-shadow: 0 0 3px 2px #dedede;
-	margin-top:90px
+    box-shadow: 0 0 3px 2px #dedede
 }
 .vu-center>th{padding: 6px 0 6px 12px;border-bottom: 1px solid #ddd;}
 .upload-box{width:300px;margin-top:60px}

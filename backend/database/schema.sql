@@ -58,14 +58,23 @@ CREATE TABLE projects (
 );
 
 INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
-VALUES (1, 'user', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Admin');
+VALUES (3, 'user', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Admin');
 INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
-VALUES (2, 'user1', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Admin');
+VALUES (4, 'user1', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Admin');
 INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
-VALUES (3, 'user2', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Admin');
+VALUES (5, 'user2', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Admin');
 INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
-VALUES (4, 'user3', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Admin');
-
+VALUES (6, 'user3', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Admin');
+INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
+VALUES (7, 'opiekun', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'opiekun', 'opiekun', 'opiekun', 'XXX', '888777666', 'Supervisor');
+INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
+VALUES (8, 'kierownik', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'kierownik', 'kierownik', 'kierownik', 'XXX', '888777666', 'Leader');
+INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
+VALUES (9, 'klient', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'klient', 'klient', 'klient', 'XXX', '888777666', 'Client');
+INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
+VALUES (10, 'koordynator', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'koordynator', 'koordynator', 'koordynator', 'XXX', '888777666', 'Coordinator');
+INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
+VALUES (11, 'student', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'student', 'student', 'student', 'XXX', '888777666', 'Student');
 
 
 DROP TABLE projects;
