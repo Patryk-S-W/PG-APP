@@ -13,7 +13,7 @@ const { body, check } = require('express-validator');
 
 const config = require('./config');
 //const router = require('./router');
-const authController = require('users/authenticate.controller');
+// const authController = require('users/authenticate.controller');
 const validate = require('_helpers/validation');
 
 app.use(bodyParser.urlencoded({
@@ -31,7 +31,6 @@ const limiter = rateLimit({
 
 app.use(limiter)
 
-
 app.get('/users', db.getUsers);
 app.get('/users/uid/:uid', db.getUserById);
 app.get('/users/role/:role', db.getUserByRole);
@@ -39,9 +38,14 @@ app.post('/users', db.createUser);
 app.put('/users/uid/:uid', db.updateUser);
 app.delete('/users/uid/:uid', db.deleteUser);
 
+app.get('/MyProjects', db.getProjectsByUser);
+app.get('/projects', db.getProjects);
+app.post('/projects/addproject', db.createProject);
+
+
 // api routes
 app.use('/users', require('./users/users.controller'));
-//app.use('/projects', require('./projects/project.controller'));
+app.use('/projects', require('./projects/project.controller'));
 /*app.post(
   '/signup',
   validate.userSignupValidation,

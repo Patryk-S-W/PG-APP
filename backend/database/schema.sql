@@ -77,6 +77,11 @@ INSERT INTO users (uid, username, email, email_verified, date_created, last_logi
 VALUES (11, 'student', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'student', 'student', 'student', 'XXX', '888777666', 'Student');
 
 
+INSERT INTO projects (title, start_time, end_time)
+VALUES ('test', '2019-09-22 19:10:25', '2019-09-22 19:10:25');
+INSERT INTO projects (title, start_time, end_time)
+VALUES ('test-2', '2019-09-22 19:10:22', '2019-09-24:10:25');
+
 DROP TABLE projects;
 DROP TABLE appointments;
 DROP TABLE messages;

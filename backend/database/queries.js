@@ -12,6 +12,8 @@ const pool = new Pool({
 })
 
 
+///	Users
+
 const getUsers = (request, response) => {
 	pool.query('SELECT uid, firstname, lastname, company, email, phone, role FROM users ORDER BY uid ASC', (error, results) => {
 		if (error) {
@@ -111,14 +113,50 @@ const deleteUser = (request, response) => {
   })
 }
 
-const createProject = (request, response) => {
-	pool.query('', (error, results) => {
+
+/// Projects
+
+const getProjects = (request, response) => {
+	pool.query('SELECT * FROM projects', (error, results) => {
 		if (error) {
 			response.status(400).json({error})
 		}
 		response.status(200).json(results.rows)
 	})
 }
+
+const getProjectsByUser = (request, response) => {
+	pool.query('SELECT * FROM projects ', (error, results) => {
+		if (error) {
+			response.status(400).json({error})
+		}
+		response.status(200).json(results.rows)
+	})
+}
+    
+const getProjectById = (request, response) => {
+    const prid = parseInt(request.params.prid)
+
+    pool.query('SELECT * FROM projects WHERE prid = $1', [prid], (error, results) => {
+
+		if (error) {
+			response.status(400).json({error})
+		}
+		response.status(200).json(results.rows)
+	})
+}
+
+const createProject = (request, response) => {
+	  const { title, start, end } = request.body
+	pool.query('INSERT INTO projects (title, start_time, end_time) VALUES ($1, $2, $3)',[title, start, end] , (error, results) => {
+		if (error) {
+			response.status(400).json({error})
+		}
+		response.status(200).send('Projekt zostal utworzony')
+	})
+}
+
+/// Other
 
 const createRaport = (request, response) => {
 	pool.query('', (error, results) => {
@@ -156,14 +194,6 @@ const getParticipants = (request, response) => {
 	})
 }
 
-const getProjects = (request, response) => {
-	pool.query('', (error, results) => {
-		if (error) {
-			response.status(400).json({error})
-		}
-		response.status(200).json(results.rows)
-	})
-}
 
 module.exports = {
 	pool,
@@ -180,5 +210,6 @@ module.exports = {
 	createSchedule,
 	getAvailableProjects,
 	getParticipants,
-	getProjects
+	getProjects,
+	getProjectsByUser
 }

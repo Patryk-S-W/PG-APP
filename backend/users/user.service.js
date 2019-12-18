@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 const Role = require('_helpers/role');
 
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const express = require('express');
 
 const db = require('database/queries');
@@ -51,29 +51,29 @@ async function authenticate({ username, password }) {
     }
 }
 
-/*
-const authenticate = params => {
-      return Users.findOne({
-          where: {
-              username: params.username
-          },
-          raw: true
-     }).then(user => {
-          if (!user)
-              throw new Error('Authentication failed. User not found.');
-          if (!bcrypt.compareSync(params.password || '', user.password))
-              throw new Error('Authentication failed. Wrong password.');
-          const payload = {
-              role: user.role,
-              uid: user.uid
-          };
-		  var token = jwt.sign(payload, config.secret, {
-              expiresIn: config.tokenExpireTime
-          });
-          return token;
-      });
-}
-*/
+
+// const authenticate = params => {
+//       return Users.findOne({
+//           where: {
+//               username: params.username
+//           },
+//           raw: true
+//      }).then(user => {
+//           if (!user)
+//               throw new Error('Authentication failed. User not found.');
+//           if (!bcrypt.compareSync(params.password || '', user.password))
+//               throw new Error('Authentication failed. Wrong password.');
+//           const payload = {
+//               role: user.role,
+//               uid: user.uid
+//           };
+// 		  var token = jwt.sign(payload, config.secret, {
+//               expiresIn: config.tokenExpireTime
+//           });
+//           return token;
+//       });
+// }
+
 
 async function getAll() {
     return users.map(u => {
