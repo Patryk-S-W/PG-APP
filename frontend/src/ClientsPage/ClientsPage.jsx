@@ -14,7 +14,7 @@ class ClientsPage extends React.Component {
     }
 
     componentDidMount() {
-        userService.getAllClients().then(clients => this.setState({ clients }));
+        userService.getUserByRole('Client').then(clients => this.setState({ clients }));
     }
 
     render() {
@@ -24,7 +24,7 @@ class ClientsPage extends React.Component {
 				<Sidebar />
 				<Navbar />
 				<div className="vu-content">
-					<div className="container-fluid">
+					<div className="container-fluid column-flex">
 						<div className="vu-box">
 							<div>
 								<h1>Wszyscy klienci</h1>
@@ -35,10 +35,9 @@ class ClientsPage extends React.Component {
 										<tr className="vu-center"><th>ID</th><th>Imię</th><th>Nazwisko</th><th>Firma</th><th>E-mail</th><th>Telefon</th></tr>
 									</thead>
 									<tbody>
-										{/*clients.map(user =>
-										<tr key={user.id}><td>{user.id}</td><td>{user.first_name}</td><td>{user.last_name}</td><td>{user.company}</td><td>{user.mail}</td><td>{user.phone}</td></tr>
-										)*/}
-										<tr><td>5</td><td>Jakiś</td><td>Klient</td><td>XXX</td><td>1@1.com</td><td>888777666</td></tr>
+										{clients.map(user =>
+										<tr key={user.uid}><td>{user.uid}</td><td>{user.firstname}</td><td>{user.lastname}</td><td>{user.company}</td><td>{user.email}</td><td>{user.phone}</td></tr>
+										)}
 									</tbody>
 									</table>
 								}

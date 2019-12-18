@@ -40,7 +40,7 @@ app.get('/projects', db.getProjects);
 
 // api routes
 app.use('/users', require('./users/users.controller'));
-//app.use('/projects', require('./projects/project.controller'));
+app.use('/projects', require('./projects/project.controller'));
 
 
 app.get('/', (request, response) => {

@@ -26,7 +26,7 @@ class SendRaportPage extends React.Component {
     onClickHandler = () => {
         const data = new FormData()
         data.append('file', this.state.selectedFile)
-        axios.post(`${config.apiUrl}/uploadRaports`, data, { 
+        axios.post(`${config.apiUrl}/uploads`, data, { 
            // receive two    parameter endpoint url ,form data
        })
      .then(res => { // then print response status
@@ -50,7 +50,8 @@ class SendRaportPage extends React.Component {
 				<Sidebar />
 				<Navbar />
 				<div className="vu-content">
-				  <div className="container-fluid column-flex">
+					<div className="container-fluid column-flex">
+						<div className="vu-box">
 						<h1 className="hheader">Badanie przyciagania ziemskiego czujnikiem w smartfonie</h1>
 						<table className="lessons-table">
 							<tbody>
@@ -71,6 +72,7 @@ class SendRaportPage extends React.Component {
 						<h3 className="hheader">Dodaj komentarz</h3>
 						<textarea  rows="4"  cols="50"/>    
 						<button type="button" className="btn btn-success btn-block">Wyślij</button> 
+					</div>
 					</div>
 				  </div>
 				</div>

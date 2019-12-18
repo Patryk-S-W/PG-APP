@@ -24,7 +24,7 @@ class CuratorsPage extends React.Component {
 				<Sidebar />
 				<Navbar />
 				<div className="vu-content">
-					<div className="container-fluid">
+					<div className="container-fluid column-flex">
 						<div className="vu-box">
 							<div>
 								<h1>Wszyscy opiekunowie</h1>
@@ -36,7 +36,7 @@ class CuratorsPage extends React.Component {
 									</thead>
 									<tbody>
 										{curators.map(user =>
-										<tr key={user.uid}><td>{user.uid}</td><td>{user.firstname}</td><td>{user.lastname}</td><td>{user.company}</td><td>{user.email}</td><td>{user.phone}</td><td>{user.role}</td></tr>
+										<tr key={user.uid}><td>{user.uid}</td><td>{user.firstname}</td><td>{user.lastname}</td><td>{user.company}</td><td>{user.email}</td><td>{user.phone}</td></tr>
 										)}
 									</tbody>
 									</table>
