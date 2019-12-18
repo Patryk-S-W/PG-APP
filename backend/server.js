@@ -5,11 +5,13 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const errorHandler = require('_helpers/error-handler');
 const db = require('./database/queries');
-const multer = require('multer')
-const helmet = require('helmet')
-const compression = require('compression')
-const rateLimit = require('express-rate-limit')
-const { body, check } = require('express-validator')
+const multer = require('multer');
+const helmet = require('helmet');
+const compression = require('compression');
+const rateLimit = require('express-rate-limit');
+const { body, check } = require('express-validator');
+
+const config = require('./config');
 
 app.use(bodyParser.urlencoded({
 	extended: true
@@ -26,26 +28,30 @@ const limiter = rateLimit({
 
 app.use(limiter)
 
+
 app.get('/users', db.getUsers);
+app.get('/users/role/:role', db.getUserByRole);
+app.get('/users/uid/:uid', db.getUserById);
+app.post('/users', db.createUser);
+app.put('/users/uid/:uid', db.updateUser);
+app.delete('/users/uid/:uid', db.deleteUser);
+
+app.get('/projects', db.getProjects);
 
 // api routes
 app.use('/users', require('./users/users.controller'));
-app.use('/projects', require('./projects/project.controller'));
+//app.use('/projects', require('./projects/project.controller'));
 
 
 app.get('/', (request, response) => {
-  response.json({ info: 'API' })
+    response.json({ info: 'API' })
 })
-app.get('/users', db.getUsers)
-app.get('/users/:id', db.getUserById)
-app.post('/users', db.createUser)
-app.put('/users/:id', db.updateUser)
-app.delete('/users/:id', db.deleteUser)
+
 
 // file upload
 const storage = multer.diskStorage({
 	destination: function(req, file, cb) {
-		cb(null, 'uploadRaports')
+		cb(null, 'uploads')
 	},
 	filename: function(req, file, cb) {
 		cb(null, Date.now() + '-' + file.originalname)
@@ -57,7 +63,7 @@ const upload = multer({
 }).single('file')
 
 
-app.post('/uploadRaports', function(req, res) {
+app.post('/uploads', function(req, res) {
 	upload(req, res, function(err) {
 		if (err instanceof multer.MulterError) {
 			return res.status(500).json(err)
@@ -79,6 +85,4 @@ const origin = {
 }
 app.use(cors(origin))
 const port = isProduction ? 80 : 4000;
-const server = app.listen(port, function() {
-	console.log('Server listening on port ' + port);
-});
+const server = app.listen(port, () => console.log('Server listening on port '+ port));

@@ -5,8 +5,15 @@ export const projectService = {
     getAllProjects,
     getProjectsById,
     addProject,
-    addUserToProject
+    addUserToProject,
+    getAllMyProjects,
 };
+
+
+function getAllMyProjects() {
+    const requestOptions = { method: 'GET', headers: authHeader() };
+    return fetch(`${config.apiUrl}/MyProjects`, requestOptions).then(handleResponse);
+}
 
 function getAllProjects() {
     const requestOptions = { method: 'GET', headers: authHeader() };
@@ -17,12 +24,14 @@ function getProjectsById(id) {
     const requestOptions = { method: 'GET', headers: authHeader() };
     return fetch(`${config.apiUrl}/projects/${id}`, requestOptions).then(handleResponse);
 }
+
 function addProject(project) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(project)     
     };
+    console.log(requestOptions);
     return fetch(`${config.apiUrl}/projects/addproject`, requestOptions)
     .then(handleResponse)
 }

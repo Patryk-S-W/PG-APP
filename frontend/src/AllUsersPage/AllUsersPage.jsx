@@ -24,7 +24,7 @@ class AllUsersPage extends React.Component {
 				<Sidebar />
 				<Navbar />
 				<div className="vu-content">
-					<div className="container-fluid">
+					<div className="container-fluid column-flex">
 						<div className="vu-box">
 							<div>
 								<h1>Wszyscy użytkownicy</h1>
@@ -32,11 +32,11 @@ class AllUsersPage extends React.Component {
 								{users &&
 									<table className="lessons-table">
 									<thead>
-										<tr className="vu-center"><th>ID</th><th>Imię</th><th>Nazwisko</th><th>Firma</th><th>E-mail</th><th>Telefon</th></tr>
+										<tr className="vu-center"><th>ID</th><th>Imię</th><th>Nazwisko</th><th>Firma</th><th>E-mail</th><th>Telefon</th><th>Rola</th></tr>
 									</thead>
 									<tbody>
 										{users.map(user =>
-										<tr key={user.id}><td>{user.id}</td><td>{user.first_name}</td><td>{user.last_name}</td><td>{user.company}</td><td>{user.email}</td><td>{user.phone}</td></tr>
+										<tr key={user.uid}><td>{user.uid}</td><td>{user.firstname}</td><td>{user.lastname}</td><td>{user.company}</td><td>{user.email}</td><td>{user.phone}</td><td>{user.role}</td></tr>
 										)}
 									</tbody>
 									</table>

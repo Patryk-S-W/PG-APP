@@ -21,7 +21,7 @@ class Navbar extends React.Component {
             currentUser: null,
             isAdmin: false,
             isClient: false,
-            isCoordinator: false,
+            isLeader: false,
             isStudent: false,
             isSupervisor: false,
             selectedFile: null 
@@ -34,7 +34,7 @@ class Navbar extends React.Component {
             currentUser: x,
             isAdmin: x && x.role === Role.Admin,
             isClient: x && x.role === Role.Client,
-            isCoordinator: x && x.role === Role.Coordinator,
+            isLeader: x && x.role === Role.Leader,
             isStudent: x && x.role === Role.Student,
             isSupervisor: x && x.role === Role.Supervisor
         }));
@@ -47,7 +47,7 @@ class Navbar extends React.Component {
     onClickHandler = () => {
         const data = new FormData()
         data.append('file', this.state.selectedFile)
-        axios.post(`${config.apiUrl}/uploadRaports`, data, {
+        axios.post(`${config.apiUrl}/uploads`, data, {
        })
      .then(res => {
          console.log(res.statusText)
@@ -63,7 +63,7 @@ class Navbar extends React.Component {
         
       }
     render() {
-        const { currentUser, isAdmin, isClient, isCoordinator, isStudent, isSupervisor } = this.state;
+        const { currentUser, isAdmin, isClient, isLeader, isStudent, isSupervisor } = this.state;
         return (
           <div data-component="navbar">
             <nav className="navbar p-0 fixed-top" style={{boxShadow: '2px 2px 2px #dedede'}}>

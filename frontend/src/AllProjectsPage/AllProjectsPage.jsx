@@ -1,59 +1,54 @@
 import React from 'react';
+import Moment from 'react-moment';
 
-import { userService } from '@/_services';
+import { projectService } from '@/_services';
 import { Sidebar } from '@/Sidebar';
 import { Navbar } from '@/Navbar';
 
 class AllProjectsPage extends React.Component {
-    constructor(props) {
-        super(props);
+	constructor(props) {
+		super(props);
 
-        this.state = {
-            students: null
-        };
-    }
+		this.state = {
+			students: null
+		};
+	}
 
-    componentDidMount() {
-        userService.getAllStudents().then(students => this.setState({ students }));
+	componentDidMount() {
+        projectService.getAllProjects().then(projects => this.setState({ projects }));
     }
 
     render() {
-        const { students } = this.state;
-        return (
-            <div>
-				<Sidebar />
-				<Navbar />
-				<div className="vu-content">
-					<div className="container-fluid">
-						<div className="vu-box">
-							<div>
-								<h1>Wszystkie projekty</h1>
-								<div>
-								{students &&
-									<table className="lessons-table">
-									<thead>
-										<tr className="vu-center"><th>ID</th><th>Opiekun</th><th>Typ</th><th>Klucz</th><th>Kierownik</th><th>Opis</th></tr>
-									</thead>
-									<tbody>
-										{/*students.map(user =>
-										<tr key={user.id}><td>{user.id}</td><td>{user.first_name}</td><td>{user.last_name}</td><td>{user.company}</td><td>{user.mail}</td><td>{user.phone}</td></tr>
-										)*/}
-										<tr><td>1</td><td>Ewa E.</td><td>Chemia, Biologia</td><td>6hU2@</td><td>Anastazy</td><td>Modelling charge transfer processes in C 2+ –tetrahydrofuran collision for ion-induced radiation damage in DNA building blocks</td></tr>
-										<tr><td>2</td><td>Norbert D.</td><td>Elektronika</td><td>5Y8k$</td><td>Anastazy</td><td>Dron spadający</td></tr>
-										<tr><td>3</td><td>Beata Ż.</td><td>Elektronika</td><td>2Hm^i</td><td>Anastazy</td><td>Czołg latający</td></tr>
-										<tr><td>4</td><td>Katarzyna K.</td><td>Fizyka</td><td>!dB4w</td><td>Anastazy</td><td>Badanie przyciagania ziemskiego czujnikiem w smartfonie</td></tr>
-									</tbody>
-									</table>
-									
-								}
-								  
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-            </div>
-        );
+    	const { projects } = this.state;
+    	return (
+    		<div>
+    			<Sidebar />
+    			<Navbar />
+		    	<div className="vu-content">
+		    		<div className="container-fluid">
+			    		<div className="vu-box">
+				    		<div>
+					    		<h1>Wszystkie projekty</h1>
+					    		<div>
+					    		{projects &&
+					    			<table className="lessons-table">
+					    			<thead>
+					    				<tr className="vu-center"><th>ID</th><th>Tytul</th><th>Rozpoczęcie</th><th>Zakończenie</th><th>Opiekun</th><th>Kierownik</th><th>Klucz</th></tr>
+					    			</thead>
+					    			<tbody>
+						    			{projects.map(project =>
+						    				<tr key={project.prid}><td>{project.prid}</td><td>{project.title}</td><td><Moment format="YYYY/MM/DD HH:mm">{project.start_time}</Moment></td><td><Moment format="YYYY/MM/DD HH:mm">{project.end_time}</Moment></td><td>{project.supervisor}</td><td>{project.leader}</td><td>{project.pkey}</td></tr>
+						    				)}
+					    			</tbody>
+					    			</table>
+					    		}
+					    		</div>
+				    		</div>
+			    		</div>
+		    		</div>
+		    	</div>
+    		</div>
+    		);
     }
 }
 
