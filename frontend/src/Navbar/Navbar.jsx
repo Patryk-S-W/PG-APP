@@ -100,7 +100,7 @@ class Navbar extends React.Component {
                     </div>
                   </div> */}
 				  </div>
-				
+          <link rel="apple-touch-icon" href="/custom-icon.png"/>
 					{/* <form className="right-links form-inline float-right" style={{margin: '0 180px 0 0'}}>
                   <div className="d-inline dropdown">
                     <a className="dropdown-toggle" id="filters" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" title="Filtry"><i className="fas fa-filter" /></a>
