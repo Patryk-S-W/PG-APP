@@ -10,7 +10,7 @@ class ItemList extends React.Component {
         return (     
             items.map((item)=>{
                   return(            
-                    <li className="list-group-item pl-4">
+                    <li key={item.title} className="list-group-item pl-4">
                       <a href={item.link} >{item.title}</a>
                     </li>
               )
