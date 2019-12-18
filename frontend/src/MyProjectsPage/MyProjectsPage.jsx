@@ -1,6 +1,7 @@
 import React from 'react';
+import Moment from 'react-moment';
 
-import { userService } from '@/_services';
+import { projectService } from '@/_services';
 import { Sidebar } from '@/Sidebar';
 import { Navbar } from '@/Navbar';
 
@@ -9,16 +10,16 @@ class MyProjectsPage extends React.Component {
         super(props);
 
         this.state = {
-            students: null
+            projects: null
         };
     }
 
     componentDidMount() {
-        userService.getAllStudents().then(students => this.setState({ students }));
+        projectService.getAllMyProjects().then(projects => this.setState({ projects }));
     }
 
     render() {
-        const { students } = this.state;
+        const { projects } = this.state;
         return (
             <div>
 				<Sidebar />
@@ -27,18 +28,17 @@ class MyProjectsPage extends React.Component {
 					<div className="container-fluid">
 						<div className="vu-box">
 							<div>
-								<h1>Wszyscy studenci</h1>
+								<h1>Moje projekty</h1>
 								<div>
-								{students &&
+								{projects &&
 									<table className="lessons-table">
 									<thead>
-										<tr className="vu-center"><th>ID</th><th>Opiekun</th><th>Typ</th><th>Klucz</th><th>Kierownik</th><th>Opis</th></tr>
+										<tr className="vu-center"><th>ID</th><th>Tytul</th><th>Rozpoczęcie</th><th>Zakończenie</th></tr>
 									</thead>
 									<tbody>
-										{/*students.map(user =>
-										<tr key={user.id}><td>{user.id}</td><td>{user.first_name}</td><td>{user.last_name}</td><td>{user.company}</td><td>{user.mail}</td><td>{user.phone}</td></tr>
-										)*/}
-										<tr><td>4</td><td>Katarzyna K.</td><td>Fizyka</td><td>!dB4w</td><td>Anastazy</td><td>Badanie przyciagania ziemskiego czujnikiem w smartfonie</td><td><a href="/sendraport">Prześlij raport</a></td></tr>
+										{projects.map(project =>
+										<tr key={project.prid}><td>{project.prid}</td><td>{project.title}</td><td><Moment format="YYYY/MM/DD HH:mm">{project.start_time}</Moment></td><td><Moment format="YYYY/MM/DD HH:mm">{project.end_time}</Moment></td></tr>
+										)}
 									</tbody>
 									</table>
 								}
