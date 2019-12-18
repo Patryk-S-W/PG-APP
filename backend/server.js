@@ -38,6 +38,8 @@ app.put('/users/uid/:uid', db.updateUser);
 app.delete('/users/uid/:uid', db.deleteUser);
 
 app.get('/projects', db.getProjects);
+app.get('/MyProjects', db.getProjectsByUser);
+
 
 // api routes
 app.use('/users', require('./users/users.controller'));

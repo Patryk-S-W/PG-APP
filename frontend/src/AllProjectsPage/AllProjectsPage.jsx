@@ -15,7 +15,7 @@ class AllProjectsPage extends React.Component {
 	}
 
 	componentDidMount() {
-        projectService.getAllProjects().then(projects => this.setState({ projects }));
+        projectService.getAllMyProjects().then(projects => this.setState({ projects }));
     }
 
     render() {

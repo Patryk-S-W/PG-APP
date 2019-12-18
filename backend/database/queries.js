@@ -12,6 +12,8 @@ const pool = new Pool({
 })
 
 
+/// User
+
 const getUsers = (request, response) => {
 	pool.query('SELECT uid, firstname, lastname, company, email, phone, role FROM users ORDER BY uid ASC', (error, results) => {
 		if (error) {
@@ -109,6 +111,18 @@ const updateUser = (request, response) => {
   )
 }
 
+const deleteUser = (request, response) => {
+  const id = parseInt(request.params.id)
+
+  pool.query('DELETE FROM users WHERE uid = $1', [id], (error, results) => {
+    if (error) {
+      response.status(400).json({error})
+    }
+    response.status(200).send(`User deleted with ID: ${id}`)
+  })
+}
+
+/// Project
 
 const getProjects = (request, response) => {
 	pool.query('SELECT * FROM projects', (error, results) => {
@@ -119,15 +133,13 @@ const getProjects = (request, response) => {
 	})
 }
 
-const deleteUser = (request, response) => {
-  const id = parseInt(request.params.id)
-
-  pool.query('DELETE FROM users WHERE uid = $1', [id], (error, results) => {
-    if (error) {
-      response.status(400).json({error})
-    }
-    response.status(200).send(`User deleted with ID: ${id}`)
-  })
+const getProjectsByUser = (request, response) => {
+	pool.query('SELECT * FROM projects', (error, results) => {
+		if (error) {
+			response.status(400).json({error})
+		}
+		response.status(200).json(results.rows)
+	})
 }
 
 const createProject = (request, response) => {
@@ -191,5 +203,6 @@ module.exports = {
 	createSchedule,
 	getAvailableProjects,
 	getParticipants,
-	getProjects
+	getProjects,
+	getProjectsByUser
 }
