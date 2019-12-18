@@ -74,7 +74,7 @@ VALUES (4, 'user1', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25'
 INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
 VALUES (5, 'user2', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Student');
 INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
-VALUES (6, 'user3', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Student');
+VALUES (6, 'user3', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Leader');
 INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
 VALUES (7, 'opiekun', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'opiekun', 'opiekun', 'opiekun', 'XXX', '888777666', 'Supervisor');
 INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
@@ -84,9 +84,9 @@ VALUES (9, 'klient', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25
 INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
 VALUES (10, 'koordynator', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'koordynator', 'koordynator', 'koordynator', 'XXX', '888777666', 'Supervisor');
 INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
-VALUES (11, 'student', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'student', 'student', 'student', 'XXX', '888777666', 'Student');
+VALUES (11, 'student', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'student', 'student', 'student', 'XXX', '888777666', 'Leader');
 INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
-VALUES (12, 'student2', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'student', 'student', 'student', 'XXX', '888777666', 'Student');
+VALUES (12, 'student2', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'student', 'student', 'student', 'XXX', '888777666', 'Leader');
 INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
 VALUES (13, 'user4', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:25', 'user', 'fuser', 'luser', 'XXX', '888777666', 'Student');
 INSERT INTO users (uid, username, email, email_verified, date_created, last_login, password, firstname, lastname, company, phone, role)
@@ -107,17 +107,17 @@ VALUES (19, 'Patryk', '1@2.pl', true, '2019-09-22 19:10:25', '2019-09-22 19:10:2
 
 
 INSERT INTO projects (prid, title, supervisor, leader, pkey, members, description, start_time, end_time)
-VALUES (1, 'student project', 'opiekun', 'kierownik', 'e*j45',ARRAY ['user','user1','user2','user3','user4' ], 'test description', '2019-09-22 19:10:25', '2019-09-22 19:10:25');
+VALUES (1, 'student project', 'opiekun', 'kierownik', 'e*j45',ARRAY ['kierownik','user1','user2','user3','user4' ], 'test description', '2019-09-22 19:10:25', '2019-09-22 19:10:25');
 INSERT INTO projects (prid, title, supervisor, leader, pkey, members, description, start_time, end_time)
-VALUES (2, 'student project1', 'opiekun', 'kierownik', '$G451h',ARRAY ['student','student2','user1','user2','user3','user4' ], 'test description', '2019-09-22 19:10:26', '2019-09-22 19:10:26');
+VALUES (2, 'student project1', 'opiekun', 'student', '$G451h',ARRAY ['student','student2','user1','user2','user3','user4' ], 'test description', '2019-09-22 19:10:26', '2019-09-22 19:10:26');
 INSERT INTO projects (prid, title, supervisor, leader, pkey, members, description, start_time, end_time)
-VALUES (3, 'student project2', 'opiekun', 'kierownik', '#17J1',ARRAY ['student','student2','user2','user3' ], 'test description', '2019-09-12 19:10:25', '2019-09-12 19:10:25');
+VALUES (3, 'student project2', 'opiekun', 'student2', '#17J1',ARRAY ['student','student2','user2','user3' ], 'test description', '2019-09-12 19:10:25', '2019-09-12 19:10:25');
 INSERT INTO projects (prid, title, supervisor, leader, pkey, members, description, start_time, end_time)
-VALUES (4, 'student project3', 'opiekun', 'kierownik', '^&7Ug',ARRAY ['user2','user3' ], 'test description', '2019-09-11 19:10:25', '2019-09-11 19:10:25');
+VALUES (4, 'student project3', 'opiekun', 'user3', '^&7Ug',ARRAY ['user2','user3' ], 'test description', '2019-09-11 19:10:25', '2019-09-11 19:10:25');
 INSERT INTO projects (prid, title, supervisor, leader, pkey, members, description, start_time, end_time)
-VALUES (5, 'student project4', 'opiekun', 'kierownik', '!h%6r',ARRAY ['user','student2' ], 'test description', '2019-09-07 19:10:25', '2019-09-07 19:10:25');
+VALUES (5, 'student project4', 'opiekun', 'kierownik', '!h%6r',ARRAY ['kierownik', 'user','student2' ], 'test description', '2019-09-07 19:10:25', '2019-09-07 19:10:25');
 INSERT INTO projects (prid, title, supervisor, leader, pkey, members, description, start_time, end_time)
-VALUES (6, 'student project5', 'opiekun', 'kierownik', 'L039c',ARRAY ['student','student2' ], 'test description', '2019-09-04 19:10:25', '2019-09-04 19:10:25');
+VALUES (6, 'student project5', 'opiekun', 'student2', 'L039c',ARRAY ['student','student2' ], 'test description', '2019-09-04 19:10:25', '2019-09-04 19:10:25');
 
 
 DROP TABLE projects;

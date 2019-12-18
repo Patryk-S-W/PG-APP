@@ -51,20 +51,21 @@ class SignUpPage extends React.Component {
 				<Navbar />
 				<div className="vu-content">
 				  <div className="container-fluid column-flex">
+						<div className="vu-box">
 						<h1 className="hheader">Zapisz się do projektu</h1>
             
           	<div>
             <h3 className="hheader">Projekty</h3>
             <table className="lessons-table">
 									<thead>
-										<tr className="vu-center"><th></th><th>Opiekun</th><th>Typ</th><th>Klucz</th><th>Kierownik</th><th>Opis</th><th> </th></tr>
+										<tr className="vu-center"><th></th><th>Opiekun</th><th>Klucz</th><th>Kierownik</th><th>Opis</th><th> </th></tr>
 									</thead>
 									<tbody>
 										{/*students.map(user =>
 										<tr key={user.id}><td>{user.id}</td><td>{user.firstName}</td><td>{user.lastName}</td><td>{user.company}</td><td>{user.mail}</td><td>{user.phone}</td></tr>
                     )*/
                     this.state.projects.map((project,index)=>
-                      <tr><td>{index+1}</td><td>{project.supervisor}</td><td>{project.type}</td><td>{project.key}</td><td>{project.manager}</td><td>{project.description}</td><td>
+                      <tr><td>{index+1}</td><td>{project.supervisor}</td><td>{project.pkey}</td><td>{project.leader}</td><td>{project.description}</td><td>
 						<button type="button" onClick={()=> this.setState({
         selectedProjectId:project.id})} className="btn btn-success btn-block">Wybierz</button> 
            </td></tr>
@@ -90,6 +91,7 @@ class SignUpPage extends React.Component {
         	</div>
          
 				  </div>
+				</div>
 				</div>
             </div>
         );

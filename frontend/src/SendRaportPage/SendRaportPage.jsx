@@ -52,14 +52,16 @@ class SendRaportPage extends React.Component {
 				<div className="vu-content">
 					<div className="container-fluid column-flex">
 						<div className="vu-box">
-						<h1 className="hheader">Badanie przyciagania ziemskiego czujnikiem w smartfonie</h1>
+						<h1 className="hheader">student project4</h1>
 						<table className="lessons-table">
 							<tbody>
-							<tr><th>Opiekun:</th><td>Katarzyna K.</td></tr>
-							<tr><th>Typ:</th><td>Fizyka</td></tr>
-							<tr><th>Klucz:</th><td>!dB4w</td></tr>
-							<tr><th>Kierownik:</th><td>Anastazy</td></tr>
-							<tr><th>Opis:</th><td>Badanie przyciagania ziemskiego czujnikiem w smartfonie</td></tr>
+							<tr><th>Opiekun:</th><td>opiekun</td></tr>
+							<tr><th>Klucz:</th><td>!h%6r</td></tr>
+							<tr><th>Kierownik:</th><td>kierownik</td></tr>
+							<tr><th>Data rozpoczecia:</th><td>2019-09-07 19:10:25</td></tr>
+							<tr><th>Data zakończenia:</th><td>2019-09-07 19:10:25</td></tr>
+							<tr><th>Członkowie:</th><td><li>kierownik</li><li>user</li><li>student2</li></td></tr>
+							<tr><th>Opis:</th><td>test description</td></tr>
 							</tbody>
 						</table>
 					<div className="upload-box">

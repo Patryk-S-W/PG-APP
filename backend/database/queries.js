@@ -44,6 +44,16 @@ const getUserByRole = (request, response) => {
 		response.status(200).json(results.rows)
 	})
 }
+const getUserByRole6 = (request, response) => {
+    const role = request.params.role
+    pool.query('SELECT * FROM users WHERE role = ($1)::text FETCH FIRST 6 ROWS ONLY', [role], (error, results) => {
+
+		if (error) {
+			response.status(400).json({error})
+		}
+		response.status(200).json(results.rows)
+	})
+}
 
 
 const getUserByUsernameAndPassword = (request, response) => {
@@ -170,6 +180,7 @@ module.exports = {
 	getUsers,
 	getUserById,
 	getUserByRole,
+	getUserByRole6,
 	getUserByUsername,
 	getUserByUsernameAndPassword,
 	createUser,

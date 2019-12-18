@@ -46,9 +46,7 @@ class Sidebar extends React.Component {
             arrow:'113px',
             subtitle:[
 				{title:'Stwórz projekt', link:"/createproject"},
-				{title:'Prześlij raport',link:"/sendraport"},
-				{title:'Tworzenie harmonogramu',link:"/createcalendar"},
-				{title:'Przejrzyj progress',link:"/checkprogress"}
+				{title:'Prześlij raport',link:"/sendraport"}
 			]
           }
           ,{

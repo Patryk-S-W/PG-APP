@@ -4,6 +4,7 @@ import { authHeader, handleResponse } from '@/_helpers';
 export const userService = {
     getAll,
 	getUserByRole,
+	getUserByRole6,
     getById
 };
 
@@ -19,4 +20,8 @@ function getById(id) {
 function getUserByRole(role) {
     const requestOptions = { method: 'GET', headers: authHeader() };
     return fetch(`${config.apiUrl}/users/role/${role}`, requestOptions).then(handleResponse);
+}
+function getUserByRole6(role) {
+    const requestOptions = { method: 'GET', headers: authHeader() };
+    return fetch(`${config.apiUrl}/users/role6/${role}`, requestOptions).then(handleResponse);
 }

@@ -33,11 +33,11 @@ class AllProjectsPage extends React.Component {
 					    		{projects &&
 					    			<table className="lessons-table">
 					    			<thead>
-					    				<tr className="vu-center"><th>ID</th><th>Tytul</th><th>Rozpoczęcie</th><th>Zakończenie</th><th>Opiekun</th><th>Kierownik</th><th>Klucz</th></tr>
+					    				<tr className="vu-center"><th>ID</th><th>Tytul</th><th>Rozpoczęcie</th><th>Zakończenie</th><th>Opiekun</th><th>Kierownik</th><th>Klucz</th><th>Członkowie</th></tr>
 					    			</thead>
 					    			<tbody>
 						    			{projects.map(project =>
-						    				<tr key={project.prid}><td>{project.prid}</td><td>{project.title}</td><td><Moment format="YYYY/MM/DD HH:mm">{project.start_time}</Moment></td><td><Moment format="YYYY/MM/DD HH:mm">{project.end_time}</Moment></td><td>{project.supervisor}</td><td>{project.leader}</td><td>{project.pkey}</td></tr>
+						    				<tr key={project.prid}><td>{project.prid}</td><td>{project.title}</td><td><Moment format="YYYY/MM/DD HH:mm">{project.start_time}</Moment></td><td><Moment format="YYYY/MM/DD HH:mm">{project.end_time}</Moment></td><td>{project.supervisor}</td><td>{project.leader}</td><td>{project.pkey}</td><td>{project.members.map(member => <li>{member}</li>)}</td></tr>
 						    				)}
 					    			</tbody>
 					    			</table>

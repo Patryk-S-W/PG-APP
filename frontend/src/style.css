@@ -455,7 +455,7 @@ button:focus, a:focus {
 	border-top: 5px solid #125491;
 	border-radius: 4px;
 	margin:32px;
-	padding:8px;
+	padding: 8px 8px 28px;
 	box-shadow: 0 0 3px 2px #dedede;
 }
 .lessons-table{

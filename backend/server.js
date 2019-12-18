@@ -31,6 +31,7 @@ app.use(limiter)
 
 app.get('/users', db.getUsers);
 app.get('/users/role/:role', db.getUserByRole);
+app.get('/users/role6/:role', db.getUserByRole6);
 app.get('/users/uid/:uid', db.getUserById);
 app.post('/users', db.createUser);
 app.put('/users/uid/:uid', db.updateUser);
